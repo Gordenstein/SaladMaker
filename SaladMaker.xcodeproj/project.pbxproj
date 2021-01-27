@@ -19,6 +19,10 @@
 		4414348925C197D70067CD81 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414348825C197D70067CD81 /* CategoryRow.swift */; };
 		4414348D25C1A1790067CD81 /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414348C25C1A1790067CD81 /* CategoryHome.swift */; };
 		4414349225C1A4E00067CD81 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349125C1A4E00067CD81 /* IngredientDetail.swift */; };
+		4414349825C1B7F30067CD81 /* SaladCompactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349725C1B7F30067CD81 /* SaladCompactView.swift */; };
+		4414349D25C1B99B0067CD81 /* IngredientCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349C25C1B99B0067CD81 /* IngredientCompact.swift */; };
+		441434A025C1BE0E0067CD81 /* CompactListOfIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */; };
+		441434A325C1C02C0067CD81 /* SaladBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434A225C1C02C0067CD81 /* SaladBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		4414348825C197D70067CD81 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		4414348C25C1A1790067CD81 /* CategoryHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
 		4414349125C1A4E00067CD81 /* IngredientDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetail.swift; sourceTree = "<group>"; };
+		4414349725C1B7F30067CD81 /* SaladCompactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladCompactView.swift; sourceTree = "<group>"; };
+		4414349C25C1B99B0067CD81 /* IngredientCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCompact.swift; sourceTree = "<group>"; };
+		4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactListOfIngredients.swift; sourceTree = "<group>"; };
+		441434A225C1C02C0067CD81 /* SaladBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				4414346225C183150067CD81 /* ContentView.swift */,
+				441434A225C1C02C0067CD81 /* SaladBuilder.swift */,
 				4414348B25C19AB50067CD81 /* Categories */,
 				4414349425C1A9CB0067CD81 /* Ingredients */,
+				4414349A25C1B97D0067CD81 /* Salads */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,8 +139,18 @@
 			isa = PBXGroup;
 			children = (
 				4414349125C1A4E00067CD81 /* IngredientDetail.swift */,
+				4414349C25C1B99B0067CD81 /* IngredientCompact.swift */,
+				4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */,
 			);
 			path = Ingredients;
+			sourceTree = "<group>";
+		};
+		4414349A25C1B97D0067CD81 /* Salads */ = {
+			isa = PBXGroup;
+			children = (
+				4414349725C1B7F30067CD81 /* SaladCompactView.swift */,
+			);
+			path = Salads;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				441434A325C1C02C0067CD81 /* SaladBuilder.swift in Sources */,
+				4414349D25C1B99B0067CD81 /* IngredientCompact.swift in Sources */,
+				441434A025C1BE0E0067CD81 /* CompactListOfIngredients.swift in Sources */,
 				4414346325C183150067CD81 /* ContentView.swift in Sources */,
 				4414346125C183150067CD81 /* SaladMakerApp.swift in Sources */,
 				4414347C25C185A80067CD81 /* ModelData.swift in Sources */,
@@ -211,6 +234,7 @@
 				4414348D25C1A1790067CD81 /* CategoryHome.swift in Sources */,
 				4414348925C197D70067CD81 /* CategoryRow.swift in Sources */,
 				4414348625C195080067CD81 /* CategoryItem.swift in Sources */,
+				4414349825C1B7F30067CD81 /* SaladCompactView.swift in Sources */,
 				4414347425C1836B0067CD81 /* Salad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

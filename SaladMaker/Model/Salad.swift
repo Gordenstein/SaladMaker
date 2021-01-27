@@ -11,13 +11,23 @@ import SwiftUI
 struct Salad: Hashable, Codable, Identifiable {
   var id: Int
   var name: String
-  var description: String
-  var fats: Int
-  var proteins: Int
-  var carbohydrates: Int
+  var ingredients: [Ingredient]
   
-  private var imageName: String
-  var image: Image {
-    Image(imageName)
+  var fats: Int {
+    ingredients.reduce(into: 0) { (sum, ingredient) in
+      sum += ingredient.fats
+    }
+  }
+  
+  var proteins: Int {
+    ingredients.reduce(into: 0) { (sum, ingredient) in
+      sum += ingredient.proteins
+    }
+  }
+  
+  var carbohydrates: Int {
+    ingredients.reduce(into: 0) { (sum, ingredient) in
+      sum += ingredient.carbohydrates
+    }
   }
 }

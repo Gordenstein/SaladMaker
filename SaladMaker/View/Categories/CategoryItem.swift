@@ -13,7 +13,7 @@ struct CategoryItem: View {
   var body: some View {
     VStack(alignment: .leading) {
       ZStack {
-        Color.init(red: 237 / 255, green: 237 / 255, blue: 237 / 255, opacity: 0.8)
+        itemBackgroundColor
         ingredient.image
           .renderingMode(.original)
           .resizable()
@@ -26,6 +26,8 @@ struct CategoryItem: View {
     }
     .padding(.leading, 15)
   }
+  
+  let itemBackgroundColor = Color.init(red: 237 / 255, green: 237 / 255, blue: 237 / 255, opacity: 0.8)
 }
 
 struct CategoryItem_Previews: PreviewProvider {
