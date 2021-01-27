@@ -13,7 +13,7 @@ struct IngredientDetail: View {
   var ingredient: Ingredient
   
   var ingredientIndex: Int {
-    modelData.ingedients.firstIndex(where: { $0.id == ingredient.id })!
+    modelData.ingredients.firstIndex(where: { $0.id == ingredient.id })!
   }
   
   var body: some View {
@@ -27,8 +27,8 @@ struct IngredientDetail: View {
           .padding()
         Spacer()
         Button("Add to the Salad") {
-          modelData.currentSalad.ingredients.append(ingredient)
-          modelData.ingedients[ingredientIndex].added = true
+//          modelData.currentSalad.ingredients.append(ingredient)
+          modelData.ingredients[ingredientIndex].added = true
           presentationMode.wrappedValue.dismiss()
         }
         .font(.title3)
@@ -64,7 +64,7 @@ struct IngredientDetail_Previews: PreviewProvider {
   static let modelData = ModelData()
   
   static var previews: some View {
-    IngredientDetail(ingredient: modelData.ingedients[0])
+    IngredientDetail(ingredient: modelData.ingredients[0])
       .environmentObject(modelData)
   }
 }

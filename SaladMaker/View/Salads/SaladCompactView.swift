@@ -8,29 +8,30 @@
 import SwiftUI
 
 struct SaladCompactView: View {
+  @EnvironmentObject var modelData: ModelData
   var salad: Salad
   
   var body: some View {
     VStack {
       Text(salad.name)
       
-      CompactListOfIngredients(ingredients: salad.ingredients)
+      CompactListOfIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 80)
       
       HStack {
         VStack {
           Text("Fats")
-          Text(String(salad.fats))
+          Text(String(modelData.currentNutritionFacts.fats))
         }
         Divider()
         VStack {
           Text("Proteins")
-          Text(String(salad.proteins))
+          Text(String(modelData.currentNutritionFacts.proteins))
         }
         Divider()
         VStack {
           Text("Carbs")
-          Text(String(salad.carbohydrates))
+          Text(String(modelData.currentNutritionFacts.carbohydrates))
         }
       }
       .frame(height: 80)
@@ -40,9 +41,10 @@ struct SaladCompactView: View {
 
 struct SaladCompactView_Previews: PreviewProvider {
   static let modelData = ModelData()
-  static let salad = Salad(id: 0, name: "First Salad", ingredients: modelData.ingedients)
+  static let salad = Salad(id: 0, name: "First Salad", ingredients: modelData.ingredients, nutritionFacts: NutritionFacts())
   
   static var previews: some View {
     SaladCompactView(salad: salad)
+      .environmentObject(ModelData())
   }
 }

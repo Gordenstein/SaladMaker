@@ -12,7 +12,7 @@ struct CategoryItem: View {
   var ingredient: Ingredient
   
   var ingredientIndex: Int {
-    modelData.ingedients.firstIndex(where: { $0.id == ingredient.id })!
+    modelData.ingredients.firstIndex(where: { $0.id == ingredient.id })!
   }
   
   var body: some View {
@@ -26,7 +26,7 @@ struct CategoryItem: View {
           .frame(width: 85, height: 85)
           .padding([.trailing, .top], 15)
         
-        AddToSaladButton(added: $modelData.ingedients[ingredientIndex].added)
+        AddToSaladButton(added: $modelData.ingredients[ingredientIndex].added)
           .frame(width: 25, height: 25)
           .padding([.trailing, .top], 4)
           .animation(.easeInOut)
@@ -48,7 +48,7 @@ struct CategoryItem_Previews: PreviewProvider {
   static let modelData = ModelData()
   
   static var previews: some View {
-    CategoryItem(ingredient: modelData.ingedients[0])
+    CategoryItem(ingredient: modelData.ingredients[0])
       .environmentObject(modelData)
   }
 }

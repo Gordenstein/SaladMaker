@@ -24,6 +24,6 @@ struct IngredientCompact: View {
 
 struct IngredientCompact_Previews: PreviewProvider {
   static var previews: some View {
-    IngredientCompact(ingredient: ModelData().ingedients[0])
+    IngredientCompact(ingredient: ModelData().ingredients[0])
   }
 }

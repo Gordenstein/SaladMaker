@@ -13,21 +13,23 @@ struct Salad: Hashable, Codable, Identifiable {
   var name: String
   var ingredients: [Ingredient]
   
-  var fats: Int {
-    ingredients.reduce(into: 0) { (sum, ingredient) in
-      sum += ingredient.fats
-    }
-  }
+  var nutritionFacts: NutritionFacts
   
-  var proteins: Int {
-    ingredients.reduce(into: 0) { (sum, ingredient) in
-      sum += ingredient.proteins
-    }
-  }
-  
-  var carbohydrates: Int {
-    ingredients.reduce(into: 0) { (sum, ingredient) in
-      sum += ingredient.carbohydrates
-    }
-  }
+//  var fats: Int {
+//    ingredients.reduce(into: 0) { (sum, ingredient) in
+//      sum += ingredient.fats
+//    }
+//  }
+//
+//  var proteins: Int {
+//    ingredients.reduce(into: 0) { (sum, ingredient) in
+//      sum += ingredient.proteins
+//    }
+//  }
+//
+//  var carbohydrates: Int {
+//    ingredients.reduce(into: 0) { (sum, ingredient) in
+//      sum += ingredient.carbohydrates
+//    }
+//  }
 }

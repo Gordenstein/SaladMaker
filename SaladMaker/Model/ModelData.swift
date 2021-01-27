@@ -9,12 +9,26 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-  @Published var ingedients: [Ingredient] = load("ingredientData.json")
-  @Published var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [])
+  @Published var ingredients: [Ingredient] = load("ingredientData.json")
+  var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [], nutritionFacts: NutritionFacts())
+  
+  var addedIngredients: [Ingredient] {
+    ingredients.filter { (ingredient) -> Bool in
+      ingredient.added
+    }
+  }
+  
+  var currentNutritionFacts: NutritionFacts {
+    addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
+      result.fats += ingredient.fats
+      result.proteins += ingredient.proteins
+      result.carbohydrates += ingredient.carbohydrates
+    }
+  }
   
   var categories: [String: [Ingredient]] {
     Dictionary(
-      grouping: ingedients,
+      grouping: ingredients,
       by: { $0.category.rawValue }
     )
   }

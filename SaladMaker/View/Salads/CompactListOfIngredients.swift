@@ -24,6 +24,6 @@ struct CompactListOfIngredients: View {
 
 struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
-    CompactListOfIngredients(ingredients: ModelData().ingedients)
+    CompactListOfIngredients(ingredients: ModelData().ingredients)
   }
 }
