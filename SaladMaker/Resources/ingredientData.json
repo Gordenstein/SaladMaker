@@ -7,6 +7,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables One",
+    "added": false,
     "imageName": "cucumber"
   },
   {
@@ -17,6 +18,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables One",
+    "added": false,
     "imageName": "cucumber"
   },
   {
@@ -27,6 +29,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables One",
+    "added": false,
     "imageName": "cucumber"
   },
   {
@@ -37,6 +40,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables One",
+    "added": false,
     "imageName": "cucumber"
   },
   {
@@ -47,6 +51,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables Two",
+    "added": false,
     "imageName": "tomato"
   },
   {
@@ -57,6 +62,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables Two",
+    "added": false,
     "imageName": "tomato"
   },
   {
@@ -67,6 +73,7 @@
     "proteins": 2,
     "carbohydrates": 0,
     "category": "Vegetables Two",
+    "added": false,
     "imageName": "tomato"
   }
 ]

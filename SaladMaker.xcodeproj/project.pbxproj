@@ -23,6 +23,7 @@
 		4414349D25C1B99B0067CD81 /* IngredientCompact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349C25C1B99B0067CD81 /* IngredientCompact.swift */; };
 		441434A025C1BE0E0067CD81 /* CompactListOfIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */; };
 		441434A325C1C02C0067CD81 /* SaladBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434A225C1C02C0067CD81 /* SaladBuilder.swift */; };
+		441434A625C1D5BB0067CD81 /* AddToSaladButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434A525C1D5B90067CD81 /* AddToSaladButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		4414349C25C1B99B0067CD81 /* IngredientCompact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCompact.swift; sourceTree = "<group>"; };
 		4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactListOfIngredients.swift; sourceTree = "<group>"; };
 		441434A225C1C02C0067CD81 /* SaladBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladBuilder.swift; sourceTree = "<group>"; };
+		441434A525C1D5B90067CD81 /* AddToSaladButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToSaladButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				4414348B25C19AB50067CD81 /* Categories */,
 				4414349425C1A9CB0067CD81 /* Ingredients */,
 				4414349A25C1B97D0067CD81 /* Salads */,
+				441434A525C1D5B90067CD81 /* AddToSaladButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				4414347125C183540067CD81 /* Ingredient.swift in Sources */,
 				4414348D25C1A1790067CD81 /* CategoryHome.swift in Sources */,
 				4414348925C197D70067CD81 /* CategoryRow.swift in Sources */,
+				441434A625C1D5BB0067CD81 /* AddToSaladButton.swift in Sources */,
 				4414348625C195080067CD81 /* CategoryItem.swift in Sources */,
 				4414349825C1B7F30067CD81 /* SaladCompactView.swift in Sources */,
 				4414347425C1836B0067CD81 /* Salad.swift in Sources */,

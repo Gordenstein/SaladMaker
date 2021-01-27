@@ -15,6 +15,7 @@ struct Ingredient: Hashable, Codable, Identifiable {
   var fats: Int
   var proteins: Int
   var carbohydrates: Int
+  var added: Bool
   
   var category: Category
   enum Category: String, CaseIterable, Codable {
@@ -27,5 +28,3 @@ struct Ingredient: Hashable, Codable, Identifiable {
     Image(imageName)
   }
 }
-
-

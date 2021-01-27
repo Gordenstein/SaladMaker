@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SaladBuilder: View {
-  var salad = Salad(id: 0, name: "First Salad", ingredients: [])
+  @EnvironmentObject var modelData: ModelData
   
   var body: some View {
     NavigationView {
       VStack {
-        SaladCompactView(salad: salad)
+        SaladCompactView(salad: modelData.currentSalad)
         CategoryHome()
       }
     }

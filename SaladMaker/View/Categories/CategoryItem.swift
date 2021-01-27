@@ -8,18 +8,32 @@
 import SwiftUI
 
 struct CategoryItem: View {
+  @EnvironmentObject var modelData: ModelData
   var ingredient: Ingredient
+  
+  var ingredientIndex: Int {
+    modelData.ingedients.firstIndex(where: { $0.id == ingredient.id })!
+  }
   
   var body: some View {
     VStack(alignment: .leading) {
-      ZStack {
+      ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
         itemBackgroundColor
+        
         ingredient.image
           .renderingMode(.original)
           .resizable()
-      }
+          .frame(width: 85, height: 85)
+          .padding([.trailing, .top], 15)
+        
+        AddToSaladButton(added: $modelData.ingedients[ingredientIndex].added)
+          .frame(width: 25, height: 25)
+          .padding([.trailing, .top], 4)
+          .animation(.easeInOut)
+      })
       .frame(width: 100, height: 100)
       .cornerRadius(8)
+      
       Text(ingredient.name)
         .foregroundColor(.primary)
         .font(.caption)
@@ -31,7 +45,10 @@ struct CategoryItem: View {
 }
 
 struct CategoryItem_Previews: PreviewProvider {
+  static let modelData = ModelData()
+  
   static var previews: some View {
-    CategoryItem(ingredient: ModelData().ingedients[0])
+    CategoryItem(ingredient: modelData.ingedients[0])
+      .environmentObject(modelData)
   }
 }

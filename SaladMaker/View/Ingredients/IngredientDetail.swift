@@ -9,7 +9,12 @@ import SwiftUI
 
 struct IngredientDetail: View {
   @EnvironmentObject var modelData: ModelData
+  @Environment(\.presentationMode) var presentationMode
   var ingredient: Ingredient
+  
+  var ingredientIndex: Int {
+    modelData.ingedients.firstIndex(where: { $0.id == ingredient.id })!
+  }
   
   var body: some View {
     ScrollView {
@@ -21,6 +26,13 @@ struct IngredientDetail: View {
           .font(.title)
           .padding()
         Spacer()
+        Button("Add to the Salad") {
+          modelData.currentSalad.ingredients.append(ingredient)
+          modelData.ingedients[ingredientIndex].added = true
+          presentationMode.wrappedValue.dismiss()
+        }
+        .font(.title3)
+        .padding()
       }
       
       HStack {

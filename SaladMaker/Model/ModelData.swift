@@ -10,6 +10,7 @@ import Combine
 
 final class ModelData: ObservableObject {
   @Published var ingedients: [Ingredient] = load("ingredientData.json")
+  @Published var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [])
   
   var categories: [String: [Ingredient]] {
     Dictionary(
