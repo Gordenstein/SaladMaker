@@ -11,6 +11,14 @@
 		4414346325C183150067CD81 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414346225C183150067CD81 /* ContentView.swift */; };
 		4414346525C183180067CD81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4414346425C183180067CD81 /* Assets.xcassets */; };
 		4414346825C183180067CD81 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4414346725C183180067CD81 /* Preview Assets.xcassets */; };
+		4414347125C183540067CD81 /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414347025C183540067CD81 /* Ingredient.swift */; };
+		4414347425C1836B0067CD81 /* Salad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414347325C1836B0067CD81 /* Salad.swift */; };
+		4414347C25C185A80067CD81 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414347B25C185A80067CD81 /* ModelData.swift */; };
+		4414347F25C189DC0067CD81 /* ingredientData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4414347E25C189DC0067CD81 /* ingredientData.json */; };
+		4414348625C195080067CD81 /* CategoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414348525C195080067CD81 /* CategoryItem.swift */; };
+		4414348925C197D70067CD81 /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414348825C197D70067CD81 /* CategoryRow.swift */; };
+		4414348D25C1A1790067CD81 /* CategoryHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414348C25C1A1790067CD81 /* CategoryHome.swift */; };
+		4414349225C1A4E00067CD81 /* IngredientDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4414349125C1A4E00067CD81 /* IngredientDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +28,14 @@
 		4414346425C183180067CD81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4414346725C183180067CD81 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4414346925C183180067CD81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4414347025C183540067CD81 /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		4414347325C1836B0067CD81 /* Salad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Salad.swift; sourceTree = "<group>"; };
+		4414347B25C185A80067CD81 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		4414347E25C189DC0067CD81 /* ingredientData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ingredientData.json; sourceTree = "<group>"; };
+		4414348525C195080067CD81 /* CategoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryItem.swift; sourceTree = "<group>"; };
+		4414348825C197D70067CD81 /* CategoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
+		4414348C25C1A1790067CD81 /* CategoryHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryHome.swift; sourceTree = "<group>"; };
+		4414349125C1A4E00067CD81 /* IngredientDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +69,9 @@
 			isa = PBXGroup;
 			children = (
 				4414346025C183150067CD81 /* SaladMakerApp.swift */,
-				4414346225C183150067CD81 /* ContentView.swift */,
+				4414347925C183880067CD81 /* View */,
+				4414347625C1837F0067CD81 /* Model */,
+				4414348125C189E20067CD81 /* Resources */,
 				4414346425C183180067CD81 /* Assets.xcassets */,
 				4414346925C183180067CD81 /* Info.plist */,
 				4414346625C183180067CD81 /* Preview Content */,
@@ -67,6 +85,52 @@
 				4414346725C183180067CD81 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4414347625C1837F0067CD81 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4414347B25C185A80067CD81 /* ModelData.swift */,
+				4414347025C183540067CD81 /* Ingredient.swift */,
+				4414347325C1836B0067CD81 /* Salad.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4414347925C183880067CD81 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4414346225C183150067CD81 /* ContentView.swift */,
+				4414348B25C19AB50067CD81 /* Categories */,
+				4414349425C1A9CB0067CD81 /* Ingredients */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4414348125C189E20067CD81 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				4414347E25C189DC0067CD81 /* ingredientData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		4414348B25C19AB50067CD81 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4414348C25C1A1790067CD81 /* CategoryHome.swift */,
+				4414348825C197D70067CD81 /* CategoryRow.swift */,
+				4414348525C195080067CD81 /* CategoryItem.swift */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4414349425C1A9CB0067CD81 /* Ingredients */ = {
+			isa = PBXGroup;
+			children = (
+				4414349125C1A4E00067CD81 /* IngredientDetail.swift */,
+			);
+			path = Ingredients;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +192,7 @@
 			files = (
 				4414346825C183180067CD81 /* Preview Assets.xcassets in Resources */,
 				4414346525C183180067CD81 /* Assets.xcassets in Resources */,
+				4414347F25C189DC0067CD81 /* ingredientData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +205,13 @@
 			files = (
 				4414346325C183150067CD81 /* ContentView.swift in Sources */,
 				4414346125C183150067CD81 /* SaladMakerApp.swift in Sources */,
+				4414347C25C185A80067CD81 /* ModelData.swift in Sources */,
+				4414349225C1A4E00067CD81 /* IngredientDetail.swift in Sources */,
+				4414347125C183540067CD81 /* Ingredient.swift in Sources */,
+				4414348D25C1A1790067CD81 /* CategoryHome.swift in Sources */,
+				4414348925C197D70067CD81 /* CategoryRow.swift in Sources */,
+				4414348625C195080067CD81 /* CategoryItem.swift in Sources */,
+				4414347425C1836B0067CD81 /* Salad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

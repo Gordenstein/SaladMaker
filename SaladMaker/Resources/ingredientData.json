@@ -1,0 +1,72 @@
+[
+  {
+    "id": 0,
+    "name": "Cucuber",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables One",
+    "imageName": "cucumber"
+  },
+  {
+    "id": 1,
+    "name": "Cucuber",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables One",
+    "imageName": "cucumber"
+  },
+  {
+    "id": 2,
+    "name": "Cucuber",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables One",
+    "imageName": "cucumber"
+  },
+  {
+    "id": 3,
+    "name": "Cucuber",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables One",
+    "imageName": "cucumber"
+  },
+  {
+    "id": 4,
+    "name": "Tomato",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables Two",
+    "imageName": "tomato"
+  },
+  {
+    "id": 5,
+    "name": "Tomato",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables Two",
+    "imageName": "tomato"
+  },
+  {
+    "id": 6,
+    "name": "Tomato",
+    "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "fats": 1,
+    "proteins": 2,
+    "carbohydrates": 0,
+    "category": "Vegetables Two",
+    "imageName": "tomato"
+  }
+]
