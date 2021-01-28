@@ -9,12 +9,23 @@ import SwiftUI
 
 struct SaladBuilder: View {
   @EnvironmentObject var modelData: ModelData
+  @State private var showingProfile = false
   
   var body: some View {
     NavigationView {
       VStack {
         SaladCompactView(salad: modelData.currentSalad)
         CategoryHome()
+      }
+      .toolbar {
+        Button(action: { showingProfile.toggle() }) {
+          Image(systemName: "person.crop.circle")
+            .accessibilityLabel("User Profile")
+        }
+      }
+      .sheet(isPresented: $showingProfile) {
+        ProfileSummary()
+          .environmentObject(modelData)
       }
     }
   }

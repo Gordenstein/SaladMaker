@@ -13,7 +13,16 @@ struct SaladCompactView: View {
   
   var body: some View {
     VStack {
-      Text(salad.name)
+      HStack {
+        Text(salad.name)
+        
+        Spacer()
+        
+        NavigationLink(
+          destination: SaladDetail(salad: modelData.currentSalad)) {
+          Text("Make Salad!")
+        }
+      }.padding()
       
       CompactListOfIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 80)
