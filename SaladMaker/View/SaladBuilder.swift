@@ -13,14 +13,18 @@ struct SaladBuilder: View {
   
   var body: some View {
     NavigationView {
-      VStack {
+      VStack(spacing: 0) {
         SaladCompactView(salad: modelData.currentSalad)
+        
         CategoryHome()
+          .cornerRadius(20)
+          .offset(y: -130)
+          .padding(.bottom, -130)
       }
+      .ignoresSafeArea(.all, edges: .bottom)
       .toolbar {
         Button(action: { showingProfile.toggle() }) {
           Image(systemName: "person.crop.circle")
-            .accessibilityLabel("User Profile")
         }
       }
       .sheet(isPresented: $showingProfile) {

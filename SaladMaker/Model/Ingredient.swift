@@ -21,6 +21,8 @@ struct Ingredient: Hashable, Codable, Identifiable {
   enum Category: String, CaseIterable, Codable {
     case vegetablesOne = "Vegetables One"
     case vegetablesTwo = "Vegetables Two"
+    case vegetablesThree = "Vegetables Three"
+    case vegetablesFour = "Vegetables Four"
   }
   
   private var imageName: String

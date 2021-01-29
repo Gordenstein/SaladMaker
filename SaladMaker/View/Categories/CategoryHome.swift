@@ -11,13 +11,21 @@ struct CategoryHome: View {
   @EnvironmentObject var modelData: ModelData
   
   var body: some View {
-    List {
-      ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-        CategoryRow(categoryName: key, items: modelData.categories[key]!)
+    ScrollView {
+      Color.clear
+        .frame(height: 150, alignment: .center)
+      
+      ZStack {
+        Color.gray
+        
+        VStack {
+          ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
+            CategoryRow(categoryName: key, items: modelData.categories[key]!)
+          }
+        }
       }
-      .listRowInsets(EdgeInsets())
+      .cornerRadius(20)
     }
-    .listStyle(InsetListStyle())
   }
 }
 

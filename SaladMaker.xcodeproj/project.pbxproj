@@ -119,11 +119,11 @@
 			children = (
 				4414346225C183150067CD81 /* ContentView.swift */,
 				441434A225C1C02C0067CD81 /* SaladBuilder.swift */,
+				44C1044325C30FA6007B973A /* Profiles */,
 				4414349A25C1B97D0067CD81 /* Salads */,
 				4414348B25C19AB50067CD81 /* Categories */,
 				4414349425C1A9CB0067CD81 /* Ingredients */,
 				441434A825C1E9AB0067CD81 /* Helpers */,
-				44C1044325C30FA6007B973A /* Profiles */,
 			);
 			path = View;
 			sourceTree = "<group>";
