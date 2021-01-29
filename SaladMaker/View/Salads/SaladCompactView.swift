@@ -27,23 +27,8 @@ struct SaladCompactView: View {
       CompactListOfIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 80)
       
-      HStack {
-        VStack {
-          Text("Fats")
-          Text(String(modelData.currentNutritionFacts.fats))
-        }
-        Divider()
-        VStack {
-          Text("Proteins")
-          Text(String(modelData.currentNutritionFacts.proteins))
-        }
-        Divider()
-        VStack {
-          Text("Carbs")
-          Text(String(modelData.currentNutritionFacts.carbohydrates))
-        }
-      }
-      .frame(height: 80)
+      NutritionFactsGraph(nutritionFacts: modelData.currentNutritionFacts)
+        .frame(height: 200)
     }
   }
 }

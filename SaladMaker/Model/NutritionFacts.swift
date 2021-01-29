@@ -12,6 +12,12 @@ struct NutritionFacts: Hashable, Codable {
   var proteins: Int
   var carbohydrates: Int
   
+  init(fats: Int, proteins: Int, carbohydrates: Int) {
+    self.fats = fats
+    self.proteins = proteins
+    self.carbohydrates = carbohydrates
+  }
+  
   init() {
     self.fats = 0
     self.proteins = 0

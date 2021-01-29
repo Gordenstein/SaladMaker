@@ -18,8 +18,8 @@ struct SaladBuilder: View {
         
         CategoryHome()
           .cornerRadius(20)
-          .offset(y: -130)
-          .padding(.bottom, -130)
+          .offset(y: -200)
+          .padding(.bottom, -200)
       }
       .ignoresSafeArea(.all, edges: .bottom)
       .toolbar {

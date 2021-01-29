@@ -16,7 +16,7 @@ struct CategoryHome: View {
         .frame(height: 150, alignment: .center)
       
       ZStack {
-        Color.gray
+        Color.init(red: 220 / 255, green:  220 / 255, blue:  220 / 255, opacity: 1)
         
         VStack {
           ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
