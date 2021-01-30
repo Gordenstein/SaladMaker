@@ -15,7 +15,7 @@ struct NutritionFactData: View {
   var color: Color {
     switch currentValue {
     case 0:
-      return .clear
+      return .gray
     case 0.01..<maxValue:
       return .blue
     case maxValue...:
@@ -40,11 +40,11 @@ struct NutritionFactData: View {
         
         Capsule()
           .fill(color)
-          .animation(.easeInOut)
+//          .animation(.easeInOut)
           .frame(height: calculatedHeight)
-          .animation(nil)
+//          .animation(nil)
           .animation(Animation.spring(dampingFraction: 0.5)
-                      .speed(2))
+                      .speed(1))
           .cornerRadius(geometry.size.width / 2)
           .padding([.leading, .trailing], widthOffet / 2)
         

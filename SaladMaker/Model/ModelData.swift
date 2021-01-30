@@ -10,16 +10,13 @@ import Combine
 
 final class ModelData: ObservableObject {
   @Published var ingredients: [Ingredient] = load("ingredientData.json")
+  @Published var addedIngredients = Set<Ingredient>()
+  
   var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [], nutritionFacts: NutritionFacts())
   
-  var addedIngredients: [Ingredient] {
-    ingredients.filter { (ingredient) -> Bool in
-      ingredient.added
-    }
-  }
-  
   var currentNutritionFacts: NutritionFacts {
-    addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
+    print("addedIngredients: \(addedIngredients)")
+    return addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
       result.fat += ingredient.nutritionFacts.fat
       result.protein += ingredient.nutritionFacts.protein
       result.carbohydrate += ingredient.nutritionFacts.carbohydrate

@@ -13,6 +13,9 @@ struct SaladCompactView: View {
   
   var body: some View {
     VStack {
+      NutritionFactsGraph(nutritionFacts: modelData.currentNutritionFacts)
+        .frame(height: 200)
+      
       HStack {
         Text(salad.name)
         
@@ -26,9 +29,6 @@ struct SaladCompactView: View {
       
       CompactListOfIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 80)
-      
-      NutritionFactsGraph(nutritionFacts: modelData.currentNutritionFacts)
-        .frame(height: 200)
     }
   }
 }

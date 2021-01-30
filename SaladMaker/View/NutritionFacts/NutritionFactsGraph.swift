@@ -26,7 +26,7 @@ struct NutritionFactsGraph: View {
         NutritionFactData(maxValue: 64, currentValue: modelData.currentNutritionFacts.protein, title: "Proteins")
         NutritionFactData(maxValue: 130, currentValue: modelData.currentNutritionFacts.carbohydrate, title: "Carbs")
         NutritionFactData(maxValue: 36, currentValue: modelData.currentNutritionFacts.sugar, title: "Sugar")
-        NutritionFactData(maxValue: 2000, currentValue: modelData.currentNutritionFacts.calories, title: "Calories")
+        NutritionFactData(maxValue: 1200, currentValue: modelData.currentNutritionFacts.calories, title: "Calories")
       }
       .frame(height: geometry.size.height)
       .padding([.leading, .trailing], 10)

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CompactListOfIngredients: View {
-  var ingredients: [Ingredient]
+  var ingredients: Set<Ingredient>
   
   var body: some View {
     GeometryReader { geometry in
       HStack {
-        ForEach(ingredients) { ingredient in
+        ForEach(Array(ingredients)) { ingredient in
           IngredientCompact(ingredient: ingredient)
         }
       }
@@ -24,6 +24,6 @@ struct CompactListOfIngredients: View {
 
 struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
-    CompactListOfIngredients(ingredients: ModelData().ingredients)
+    CompactListOfIngredients(ingredients: ModelData().addedIngredients)
   }
 }

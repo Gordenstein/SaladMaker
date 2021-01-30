@@ -19,7 +19,9 @@ struct IngredientDetail: View {
   var body: some View {
     ScrollView {
       ingredient.image
-        .frame(width: 150, height: 150, alignment: .center)
+        .renderingMode(.original)
+        .scaleEffect(1.0 / 5.0)
+        .frame(width: 100, height: 100)
       
       HStack {
         Text(ingredient.name)
@@ -27,8 +29,8 @@ struct IngredientDetail: View {
           .padding()
         Spacer()
         Button("Add to the Salad") {
-//          modelData.currentSalad.ingredients.append(ingredient)
           modelData.ingredients[ingredientIndex].added = true
+          modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
           presentationMode.wrappedValue.dismiss()
         }
         .font(.title3)
