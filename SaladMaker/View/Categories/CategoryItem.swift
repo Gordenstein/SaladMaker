@@ -23,8 +23,12 @@ struct CategoryItem: View {
         ingredient.image
           .renderingMode(.original)
           .resizable()
-          .frame(width: 85, height: 85)
-          .padding([.trailing, .top], 15)
+          .frame(width: 75, height: 75)
+          .padding(.top, 20)
+          .padding(.trailing, 20)
+          .padding(.leading, 5)
+          .padding(.bottom, 5)
+          
         
         AddToSaladButton(added: $modelData.ingredients[ingredientIndex].added)
           .frame(width: 25, height: 25)

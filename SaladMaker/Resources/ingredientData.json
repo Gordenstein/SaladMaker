@@ -1,17 +1,210 @@
 [
   {
     "id": 0,
-    "name": "Cucuber",
+    "name": "Cucumber",
     "description": "Few foods are as cool as a cucumber. These low-calorie veggies contain many nutritional benefits, including hydrating properties and valuable nutrients.",
+    "weight": 100,
     "nutritionFacts": {
-      "fat": 1,
-      "protein": 2,
-      "carbohydrate": 3,
-      "sugar": 6,
-      "calories": 120,
+      "fat": 0,
+      "protein": 1,
+      "carbohydrate": 2,
+      "sugar": 1,
+      "calories": 10
     },
-    "category": "Vegetables One",
+    "category": "Vegetables",
     "added": false,
     "imageName": "cucumber"
+  },
+  {
+    "id": 1,
+    "name": "Tomato",
+    "description": "",
+    "weight": 100,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 0.6,
+      "carbohydrate": 3,
+      "sugar": 2,
+      "calories": 17
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "tomato"
+  },
+  {
+    "id": 2,
+    "name": "Lettuce",
+    "description": "",
+    "weight": 100,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1,
+      "carbohydrate": 2,
+      "sugar": 2,
+      "calories": 12
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "lettuce"
+  },
+  {
+    "id": 3,
+    "name": "Bell Pepper",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1,
+      "carbohydrate": 4,
+      "sugar": 3,
+      "calories": 17
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "bell_papper"
+  },
+  {
+    "id": 4,
+    "name": "Broccoli",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0.3,
+      "protein": 2.5,
+      "carbohydrate": 5,
+      "sugar": 1.3,
+      "calories": 30
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "broccoli"
+  },
+  {
+    "id": 5,
+    "name": "Carrot",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1.2,
+      "carbohydrate": 9,
+      "sugar": 7,
+      "calories": 38
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "carrot"
+  },
+  {
+    "id": 6,
+    "name": "Green Beans",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1.2,
+      "carbohydrate": 6,
+      "sugar": 2.4,
+      "calories": 24
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "green_beans"
+  },
+  {
+    "id": 7,
+    "name": "Radishes",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 0,
+      "carbohydrate": 3.5,
+      "sugar": 2.2,
+      "calories": 12
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "radishes"
+  },
+  {
+    "id": 8,
+    "name": "Sweet Corn",
+    "description": "",
+    "weight": 100,
+    "nutritionFacts": {
+      "fat": 2.8,
+      "protein": 4.5,
+      "carbohydrate": 20,
+      "sugar": 6,
+      "calories": 100
+    },
+    "category": "Vegetables",
+    "added": false,
+    "imageName": "sweet_corn"
+  },
+  {
+    "id": 9,
+    "name": "Apple",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 0.3,
+      "carbohydrate": 14,
+      "sugar": 10,
+      "calories": 53
+    },
+    "category": "Fruits",
+    "added": false,
+    "imageName": "apple"
+  },
+  {
+    "id": 10,
+    "name": "Avocado",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 15,
+      "protein": 3,
+      "carbohydrate": 10,
+      "sugar": 0,
+      "calories": 167
+    },
+    "category": "Fruits",
+    "added": false,
+    "imageName": "avocado"
+  },
+  {
+    "id": 11,
+    "name": "Grapefruit",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 0.7,
+      "carbohydrate": 10,
+      "sugar": 7.3,
+      "calories": 39
+    },
+    "category": "Fruits",
+    "added": false,
+    "imageName": "grapefruit"
+  },
+  {
+    "id": 12,
+    "name": "Pineapple",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1,
+      "carbohydrate": 11,
+      "sugar": 11,
+      "calories": 44.6
+    },
+    "category": "Fruits",
+    "added": false,
+    "imageName": "pineapple"
   }
 ]

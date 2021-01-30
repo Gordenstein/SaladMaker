@@ -13,7 +13,7 @@ struct CategoryHome: View {
   var body: some View {
     ScrollView {
       Color.clear
-        .frame(height: 150, alignment: .center)
+        .frame(height: 220, alignment: .center)
       
       ZStack {
         Color.init(red: 220 / 255, green:  220 / 255, blue:  220 / 255, opacity: 1)

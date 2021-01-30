@@ -14,13 +14,12 @@ struct Ingredient: Hashable, Codable, Identifiable {
   var description: String
   var nutritionFacts: NutritionFacts
   var added: Bool
+  var weight: Int
   
   var category: Category
   enum Category: String, CaseIterable, Codable {
-    case vegetablesOne = "Vegetables One"
-    case vegetablesTwo = "Vegetables Two"
-    case vegetablesThree = "Vegetables Three"
-    case vegetablesFour = "Vegetables Four"
+    case vegetablesOne = "Vegetables"
+    case fruits = "Fruits"
   }
   
   private var imageName: String

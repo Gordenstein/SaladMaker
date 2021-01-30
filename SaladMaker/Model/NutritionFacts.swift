@@ -8,13 +8,13 @@
 import Foundation
 
 struct NutritionFacts: Hashable, Codable {  
-  var fat: Int
-  var protein: Int
-  var carbohydrate: Int
-  var sugar: Int
-  var calories: Int
+  var fat: Double
+  var protein: Double
+  var carbohydrate: Double
+  var sugar: Double
+  var calories: Double
   
-  init(fat: Int, protein: Int, carbohydrate: Int, sugar: Int, calories: Int) {
+  init(fat: Double, protein: Double, carbohydrate: Double, sugar: Double, calories: Double) {
     self.fat = fat
     self.protein = protein
     self.carbohydrate = carbohydrate

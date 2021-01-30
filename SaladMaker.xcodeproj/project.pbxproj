@@ -25,7 +25,6 @@
 		441434A325C1C02C0067CD81 /* SaladBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434A225C1C02C0067CD81 /* SaladBuilder.swift */; };
 		441434A625C1D5BB0067CD81 /* AddToSaladButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434A525C1D5B90067CD81 /* AddToSaladButton.swift */; };
 		441434AD25C1EF440067CD81 /* NutritionFacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441434AC25C1EF440067CD81 /* NutritionFacts.swift */; };
-		445C6E0425C45E7D004D578D /* GraphCapsule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C6E0325C45E7D004D578D /* GraphCapsule.swift */; };
 		445C6E0825C45F01004D578D /* NutritionFactsGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C6E0725C45F01004D578D /* NutritionFactsGraph.swift */; };
 		445C6E0C25C46A44004D578D /* NutritionFactData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445C6E0B25C46A44004D578D /* NutritionFactData.swift */; };
 		44C1043D25C2FECA007B973A /* SaladDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44C1043C25C2FECA007B973A /* SaladDetail.swift */; };
@@ -53,7 +52,6 @@
 		441434A225C1C02C0067CD81 /* SaladBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladBuilder.swift; sourceTree = "<group>"; };
 		441434A525C1D5B90067CD81 /* AddToSaladButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToSaladButton.swift; sourceTree = "<group>"; };
 		441434AC25C1EF440067CD81 /* NutritionFacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFacts.swift; sourceTree = "<group>"; };
-		445C6E0325C45E7D004D578D /* GraphCapsule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCapsule.swift; sourceTree = "<group>"; };
 		445C6E0725C45F01004D578D /* NutritionFactsGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFactsGraph.swift; sourceTree = "<group>"; };
 		445C6E0B25C46A44004D578D /* NutritionFactData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionFactData.swift; sourceTree = "<group>"; };
 		44C1043C25C2FECA007B973A /* SaladDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaladDetail.swift; sourceTree = "<group>"; };
@@ -166,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				4414349725C1B7F30067CD81 /* SaladCompactView.swift */,
-				44C1043C25C2FECA007B973A /* SaladDetail.swift */,
 				4414349F25C1BE0E0067CD81 /* CompactListOfIngredients.swift */,
+				44C1043C25C2FECA007B973A /* SaladDetail.swift */,
 			);
 			path = Salads;
 			sourceTree = "<group>";
@@ -185,7 +183,6 @@
 			children = (
 				445C6E0725C45F01004D578D /* NutritionFactsGraph.swift */,
 				445C6E0B25C46A44004D578D /* NutritionFactData.swift */,
-				445C6E0325C45E7D004D578D /* GraphCapsule.swift */,
 			);
 			path = NutritionFacts;
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 				441434AD25C1EF440067CD81 /* NutritionFacts.swift in Sources */,
 				44C1044125C30F9B007B973A /* ProfileSummary.swift in Sources */,
 				441434A625C1D5BB0067CD81 /* AddToSaladButton.swift in Sources */,
-				445C6E0425C45E7D004D578D /* GraphCapsule.swift in Sources */,
 				4414348625C195080067CD81 /* CategoryItem.swift in Sources */,
 				4414349825C1B7F30067CD81 /* SaladCompactView.swift in Sources */,
 				4414347425C1836B0067CD81 /* Salad.swift in Sources */,
