@@ -15,8 +15,7 @@ final class ModelData: ObservableObject {
   var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [], nutritionFacts: NutritionFacts())
   
   var currentNutritionFacts: NutritionFacts {
-    print("addedIngredients: \(addedIngredients)")
-    return addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
+    addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
       result.fat += ingredient.nutritionFacts.fat
       result.protein += ingredient.nutritionFacts.protein
       result.carbohydrate += ingredient.nutritionFacts.carbohydrate

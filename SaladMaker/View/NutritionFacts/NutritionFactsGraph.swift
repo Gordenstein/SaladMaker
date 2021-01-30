@@ -23,13 +23,17 @@ struct NutritionFactsGraph: View {
     GeometryReader { geometry in
       HStack(alignment: .lastTextBaseline) {
         NutritionFactData(maxValue: 17, currentValue: modelData.currentNutritionFacts.fat, title: "Fats")
-        NutritionFactData(maxValue: 64, currentValue: modelData.currentNutritionFacts.protein, title: "Proteins")
+        Divider()
+        NutritionFactData(maxValue: 64, currentValue: modelData.currentNutritionFacts.protein, title: "Protein")
+        Divider()
         NutritionFactData(maxValue: 130, currentValue: modelData.currentNutritionFacts.carbohydrate, title: "Carbs")
+        Divider()
         NutritionFactData(maxValue: 36, currentValue: modelData.currentNutritionFacts.sugar, title: "Sugar")
-        NutritionFactData(maxValue: 1200, currentValue: modelData.currentNutritionFacts.calories, title: "Calories")
+        Divider()
+        NutritionFactData(maxValue: 1200, currentValue: modelData.currentNutritionFacts.calories, title: "Kcal")
       }
-      .frame(height: geometry.size.height)
       .padding([.leading, .trailing], 10)
+      .padding([.bottom, .top], 20)
     }
   }
 }

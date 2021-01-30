@@ -27,36 +27,37 @@ struct NutritionFactData: View {
   
   var body: some View {
     GeometryReader { geometry in
-      VStack(alignment: .center) {
+      VStack(alignment: .center, spacing: 0) {
         Spacer()
         
         Text(String(Int(currentValue.rounded())))
+          .padding(.bottom, 5)
         
         let widthOffet: CGFloat = 40
         let width = geometry.size.width - widthOffet
         let calculatedHeight = max(
-          CGFloat((min(currentValue, maxValue) * Double(geometry.size.height - 70)) / maxValue),
+          CGFloat((min(currentValue, maxValue) * Double(geometry.size.height - 60)) / maxValue),
           width)
         
         Capsule()
           .fill(color)
-//          .animation(.easeInOut)
           .frame(height: calculatedHeight)
-//          .animation(nil)
           .animation(Animation.spring(dampingFraction: 0.5)
                       .speed(1))
           .cornerRadius(geometry.size.width / 2)
           .padding([.leading, .trailing], widthOffet / 2)
         
         Text(title)
+          .lineLimit(1)
+          .padding(.top, 5)
       }
-      .frame(height: geometry.size.height, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+      .frame(height: geometry.size.height, alignment: .center)
     }
   }
 }
 
 struct NutritionFactData_Previews: PreviewProvider {
   static var previews: some View {
-    NutritionFactData(maxValue: 100, currentValue: 100, title: "Fats")
+    NutritionFactData(maxValue: 100, currentValue: 110, title: "Fats")
   }
 }

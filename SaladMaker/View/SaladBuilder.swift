@@ -13,26 +13,38 @@ struct SaladBuilder: View {
   
   var body: some View {
     NavigationView {
-      VStack(spacing: 0) {
-        SaladCompactView(salad: modelData.currentSalad)
+      ZStack {
+        LinearGradient(
+          gradient: Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
+          startPoint: UnitPoint(x: 0, y: 0.2),
+          endPoint: UnitPoint(x: 0.6, y: 0)
+        )
+        .ignoresSafeArea()
         
-        CategoryHome()
-          .cornerRadius(20)
-          .offset(y: -200)
-          .padding(.bottom, -200)
-      }
-      .ignoresSafeArea(.all, edges: .bottom)
-      .toolbar {
-        Button(action: { showingProfile.toggle() }) {
-          Image(systemName: "person.crop.circle")
+        VStack(spacing: 0) {
+          SaladCompactView(salad: modelData.currentSalad)
+          
+          CategoryHome()
+            .cornerRadius(20)
+            .offset(y: -200)
+            .padding(.bottom, -200)
         }
-      }
-      .sheet(isPresented: $showingProfile) {
-        ProfileSummary()
-          .environmentObject(modelData)
+        .ignoresSafeArea(.all, edges: .bottom)
+        .toolbar {
+          Button(action: { showingProfile.toggle() }) {
+            Image(systemName: "person.crop.circle")
+          }
+        }
+        .sheet(isPresented: $showingProfile) {
+          ProfileSummary()
+            .environmentObject(modelData)
+        }
       }
     }
   }
+  
+  static let gradientStart = Color(red: 50 / 255, green: 70 / 255, blue: 51 / 255)
+  static let gradientEnd = Color(red: 79 / 255, green: 91 / 255, blue: 64 / 255)
 }
 
 struct SaladBuilder_Previews: PreviewProvider {

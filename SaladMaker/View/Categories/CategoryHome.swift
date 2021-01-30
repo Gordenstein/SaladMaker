@@ -16,13 +16,14 @@ struct CategoryHome: View {
         .frame(height: 220, alignment: .center)
       
       ZStack {
-        Color.init(red: 220 / 255, green:  220 / 255, blue:  220 / 255, opacity: 1)
+        Color.white
         
         VStack {
           ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
             CategoryRow(categoryName: key, items: modelData.categories[key]!)
           }
         }
+        .padding(.top, 10)
       }
       .cornerRadius(20)
     }
