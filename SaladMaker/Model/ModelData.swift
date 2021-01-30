@@ -20,9 +20,11 @@ final class ModelData: ObservableObject {
   
   var currentNutritionFacts: NutritionFacts {
     addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
-      result.fats += ingredient.fats
-      result.proteins += ingredient.proteins
-      result.carbohydrates += ingredient.carbohydrates
+      result.fat += ingredient.nutritionFacts.fat
+      result.protein += ingredient.nutritionFacts.protein
+      result.carbohydrate += ingredient.nutritionFacts.carbohydrate
+      result.sugar += ingredient.nutritionFacts.sugar
+      result.calories += ingredient.nutritionFacts.calories
     }
   }
   

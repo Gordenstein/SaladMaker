@@ -12,9 +12,7 @@ struct Ingredient: Hashable, Codable, Identifiable {
   var id: Int
   var name: String
   var description: String
-  var fats: Int
-  var proteins: Int
-  var carbohydrates: Int
+  var nutritionFacts: NutritionFacts
   var added: Bool
   
   var category: Category

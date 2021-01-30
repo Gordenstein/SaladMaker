@@ -38,17 +38,17 @@ struct IngredientDetail: View {
       HStack {
         VStack {
           Text("Fats")
-          Text(String(ingredient.fats))
+          Text(String(ingredient.nutritionFacts.fat))
         }
         Divider()
         VStack {
           Text("Proteins")
-          Text(String(ingredient.proteins))
+          Text(String(ingredient.nutritionFacts.protein))
         }
         Divider()
         VStack {
           Text("Carbs")
-          Text(String(ingredient.carbohydrates))
+          Text(String(ingredient.nutritionFacts.carbohydrate))
         }
       }
       

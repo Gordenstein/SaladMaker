@@ -14,22 +14,4 @@ struct Salad: Hashable, Codable, Identifiable {
   var ingredients: [Ingredient]
   
   var nutritionFacts: NutritionFacts
-  
-//  var fats: Int {
-//    ingredients.reduce(into: 0) { (sum, ingredient) in
-//      sum += ingredient.fats
-//    }
-//  }
-//
-//  var proteins: Int {
-//    ingredients.reduce(into: 0) { (sum, ingredient) in
-//      sum += ingredient.proteins
-//    }
-//  }
-//
-//  var carbohydrates: Int {
-//    ingredients.reduce(into: 0) { (sum, ingredient) in
-//      sum += ingredient.carbohydrates
-//    }
-//  }
 }

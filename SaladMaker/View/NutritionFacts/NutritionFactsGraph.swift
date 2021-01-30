@@ -21,11 +21,11 @@ struct NutritionFactsGraph: View {
   var body: some View {
     GeometryReader { geometry in
       HStack(alignment: .lastTextBaseline) {
-        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.fats), title: "Fats")
-        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.proteins), title: "Proteins")
-        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.carbohydrates), title: "Carbs")
-        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.fats), title: "Smth")
-        NutritionFactData(maxValue: 150, currentValue: Double(1), title: "Smth")
+        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.fat), title: "Fats")
+        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.protein), title: "Proteins")
+        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.carbohydrate), title: "Carbs")
+        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.sugar), title: "Sugar")
+        NutritionFactData(maxValue: 150, currentValue: Double(nutritionFacts.calories), title: "Calories")
       }
       .frame(height: geometry.size.height)
       .padding([.leading, .trailing], 10)
@@ -35,6 +35,6 @@ struct NutritionFactsGraph: View {
 
 struct NutritionFactsGraph_Previews: PreviewProvider {
   static var previews: some View {
-    NutritionFactsGraph(nutritionFacts: NutritionFacts(fats: 20, proteins: 1, carbohydrates: 78))
+    NutritionFactsGraph(nutritionFacts: NutritionFacts(fat: 20, protein: 1, carbohydrate: 78, sugar: 20, calories: 120))
   }
 }
