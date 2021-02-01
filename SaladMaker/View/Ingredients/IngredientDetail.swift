@@ -17,48 +17,102 @@ struct IngredientDetail: View {
   }
   
   var body: some View {
-    ScrollView {
-      ingredient.image
-        .renderingMode(.original)
-        .scaleEffect(1.0 / 5.0)
-        .frame(width: 100, height: 100)
-      
-      HStack {
-        Text(ingredient.name)
-          .font(.title)
-          .padding()
-        Spacer()
-        Button("Add to the Salad") {
-          modelData.ingredients[ingredientIndex].added = true
-          modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
-          presentationMode.wrappedValue.dismiss()
+    GeometryReader { geometry in
+      ZStack {
+        VStack(spacing: 0) {
+          Color("ingredientBackground")
+            .frame(height: geometry.size.height * 0.66)
+          Color.init(UIColor.secondarySystemBackground)
         }
-        .font(.title3)
-        .padding()
+        .ignoresSafeArea()
+        
+        VStack(alignment: .center, spacing: 0) {
+          HStack {
+            Button(action: {
+              
+            }, label: {
+              Image(systemName: "chevron.backward")
+              Text("Salad")
+            })
+            .padding(.horizontal)
+            .foregroundColor(.white)
+            .font(.headline)
+            
+            Spacer()
+          }
+          
+          HStack {
+            Text(ingredient.name)
+              .foregroundColor(Color.white)
+              .padding(20)
+              .font(Font.system(size: 50))
+            
+            Spacer()
+          }
+          
+          HStack(alignment: .center) {
+            VStack(alignment: .leading, spacing: 20, content: {
+              NutritionFactCell(value: ingredient.nutritionFacts.fat, title: "Fats")
+              NutritionFactCell(value: ingredient.nutritionFacts.protein, title: "Proteins")
+              NutritionFactCell(value: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
+              NutritionFactCell(value: ingredient.nutritionFacts.sugar, title: "Sugar")
+              NutritionFactCell(value: ingredient.nutritionFacts.calories, title: "Calories")
+            })
+            .padding(.top, 20)
+            
+            Spacer()
+            
+            ingredient.image
+              .renderingMode(.original)
+              .scaleEffect(1.0 / 3.0)
+              .frame(width: 180, height: 180)
+          }
+          .padding(.horizontal, 20)
+          
+          Spacer()
+          
+          VStack(spacing: 30) {
+            Spacer()
+            
+            VStack(alignment: .leading, spacing: 6) {
+              Text("Details").bold()
+              
+              HStack {
+                Text("Amount").bold()
+                  .padding(.horizontal)
+                Spacer()
+                Text("100g")
+                  .padding(.horizontal)
+              }
+              .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
+              .background(Color.white)
+              .cornerRadius(14)
+            }
+                        
+            VStack(alignment: .leading, spacing: 6) {
+              Text("Desctiption").bold()
+              Text(ingredient.description)
+                .font(Font.system(size: 15))
+                .multilineTextAlignment(.leading)
+            }
+            .frame(width: geometry.size.width - 45, alignment: .center)
+                        
+            Button("Add to salad") {
+              // Add to salad
+            }
+            .foregroundColor(.white)
+            .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
+            .background(Color("ingredientBackground"))
+            .cornerRadius(14)
+            .font(.callout)
+            .shadow(color: Color.gray, radius: 5, y: 0)
+          }
+          .padding(.horizontal, 20.0)
+          .frame(height: geometry.size.height * 0.4)
+        }
       }
-      
-      HStack {
-        VStack {
-          Text("Fats")
-          Text(String(ingredient.nutritionFacts.fat))
-        }
-        Divider()
-        VStack {
-          Text("Proteins")
-          Text(String(ingredient.nutritionFacts.protein))
-        }
-        Divider()
-        VStack {
-          Text("Carbs")
-          Text(String(ingredient.nutritionFacts.carbohydrate))
-        }
-      }
-      
-      Divider()
-      
-      Text(ingredient.description)
-        .padding()
     }
+    .navigationBarHidden(true)
   }
 }
 

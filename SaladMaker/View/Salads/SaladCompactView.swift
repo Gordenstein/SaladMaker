@@ -15,7 +15,7 @@ struct SaladCompactView: View {
     VStack {
       NutritionFactsGraph(nutritionFacts: modelData.currentNutritionFacts)
         .frame(height: 200)
-        .background(Color.init(red: 220 / 255, green: 220 / 255, blue: 220 / 255, opacity: 0.9))
+        .background(Color.init(UIColor.secondarySystemBackground))
         .cornerRadius(16)
         .padding()
       

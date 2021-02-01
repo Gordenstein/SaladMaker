@@ -15,7 +15,7 @@ struct SaladBuilder: View {
     NavigationView {
       ZStack {
         LinearGradient(
-          gradient: Gradient(colors: [Self.gradientStart, Self.gradientEnd]),
+          gradient: Gradient(colors: [Color("backgroundGradientStart"), Color("backgroundGradientEnd")]),
           startPoint: UnitPoint(x: 0, y: 0.2),
           endPoint: UnitPoint(x: 0.6, y: 0)
         )
@@ -40,6 +40,9 @@ struct SaladBuilder: View {
             .environmentObject(modelData)
         }
       }
+      .navigationTitle("Salad")
+      .navigationBarTitleDisplayMode(.large)
+      .navigationBarHidden(true)
     }
   }
   
