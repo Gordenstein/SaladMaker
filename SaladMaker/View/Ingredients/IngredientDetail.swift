@@ -21,59 +21,62 @@ struct IngredientDetail: View {
       ZStack {
         VStack(spacing: 0) {
           Color("ingredientBackground")
-            .frame(height: geometry.size.height * 0.66)
+            .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.6)
           Color.init(UIColor.secondarySystemBackground)
         }
         .ignoresSafeArea()
         
         VStack(alignment: .center, spacing: 0) {
-          HStack {
-            Button(action: {
+          VStack {
+            HStack {
+              Button(action: {
+                presentationMode.wrappedValue.dismiss()
+              }, label: {
+                Image(systemName: "chevron.backward")
+                Text("Salad")
+              })
+              .padding(.horizontal)
+              .foregroundColor(.white)
+              .font(.headline)
               
-            }, label: {
-              Image(systemName: "chevron.backward")
-              Text("Salad")
-            })
-            .padding(.horizontal)
-            .foregroundColor(.white)
-            .font(.headline)
+              Spacer()
+            }
             
-            Spacer()
+            HStack {
+              Text(ingredient.name)
+                .foregroundColor(Color.white)
+                .padding(20)
+                .font(Font.system(size: 50))
+              
+              Spacer()
+            }
+            
+            HStack(alignment: .center) {
+              VStack(alignment: .leading, spacing: 0, content: {
+                NutritionFactCell(value: ingredient.nutritionFacts.fat, title: "Fats")
+                Spacer()
+                NutritionFactCell(value: ingredient.nutritionFacts.protein, title: "Proteins")
+                Spacer()
+                NutritionFactCell(value: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
+                Spacer()
+                NutritionFactCell(value: ingredient.nutritionFacts.sugar, title: "Sugar")
+                Spacer()
+                NutritionFactCell(value: ingredient.nutritionFacts.calories, title: "Calories")
+                Spacer()
+              })
+              
+              Spacer()
+              
+              ingredient.image
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 180, height: 180)
+            }
+            .padding(.horizontal, 20)
           }
-          
-          HStack {
-            Text(ingredient.name)
-              .foregroundColor(Color.white)
-              .padding(20)
-              .font(Font.system(size: 50))
-            
-            Spacer()
-          }
-          
-          HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 20, content: {
-              NutritionFactCell(value: ingredient.nutritionFacts.fat, title: "Fats")
-              NutritionFactCell(value: ingredient.nutritionFacts.protein, title: "Proteins")
-              NutritionFactCell(value: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
-              NutritionFactCell(value: ingredient.nutritionFacts.sugar, title: "Sugar")
-              NutritionFactCell(value: ingredient.nutritionFacts.calories, title: "Calories")
-            })
-            .padding(.top, 20)
-            
-            Spacer()
-            
-            ingredient.image
-              .renderingMode(.original)
-              .scaleEffect(1.0 / 3.0)
-              .frame(width: 180, height: 180)
-          }
-          .padding(.horizontal, 20)
-          
-          Spacer()
-          
-          VStack(spacing: 30) {
-            Spacer()
-            
+          .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.6 - geometry.safeAreaInsets.top)
+                    
+          VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 6) {
               Text("Details").bold()
               
@@ -88,7 +91,11 @@ struct IngredientDetail: View {
               .background(Color.white)
               .cornerRadius(14)
             }
-                        
+            .padding(.top, 16)
+            
+            Spacer()
+
+            
             VStack(alignment: .leading, spacing: 6) {
               Text("Desctiption").bold()
               Text(ingredient.description)
@@ -96,9 +103,13 @@ struct IngredientDetail: View {
                 .multilineTextAlignment(.leading)
             }
             .frame(width: geometry.size.width - 45, alignment: .center)
-                        
+            
+            Spacer()
+            
             Button("Add to salad") {
-              // Add to salad
+              modelData.ingredients[ingredientIndex].added = true
+              modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
+              presentationMode.wrappedValue.dismiss()
             }
             .foregroundColor(.white)
             .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
@@ -106,9 +117,10 @@ struct IngredientDetail: View {
             .cornerRadius(14)
             .font(.callout)
             .shadow(color: Color.gray, radius: 5, y: 0)
+            .padding(.bottom, 16)
           }
           .padding(.horizontal, 20.0)
-          .frame(height: geometry.size.height * 0.4)
+          .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.4 - geometry.safeAreaInsets.bottom)
         }
       }
     }
@@ -120,7 +132,10 @@ struct IngredientDetail_Previews: PreviewProvider {
   static let modelData = ModelData()
   
   static var previews: some View {
-    IngredientDetail(ingredient: modelData.ingredients[0])
-      .environmentObject(modelData)
+//    ForEach(["iPhone 8", "iPhone 12 Pro", "iPhone XS Max"], id: \.self) { deviceName in
+      IngredientDetail(ingredient: modelData.ingredients[0])
+        .environmentObject(modelData)
+//        .previewDevice(PreviewDevice(rawValue: deviceName))
+//    }
   }
 }
