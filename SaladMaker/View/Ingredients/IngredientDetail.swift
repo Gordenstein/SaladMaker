@@ -62,15 +62,15 @@ struct IngredientDetail: View {
             
             HStack(alignment: .center) {
               VStack(alignment: .leading, spacing: 0, content: {
-                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.fat, title: "Fats")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFactsPerGram.fat, title: "Fats")
                 Spacer()
-                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.protein, title: "Proteins")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFactsPerGram.protein, title: "Proteins")
                 Spacer()
-                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFactsPerGram.carbohydrate, title: "Carbohydrate")
                 Spacer()
-                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.sugar, title: "Sugar")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFactsPerGram.sugar, title: "Sugar")
                 Spacer()
-                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.calories, title: "Calories")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFactsPerGram.calories, title: "Calories")
                 Spacer()
               })
               
@@ -160,12 +160,12 @@ struct IngredientDetail: View {
   
   private func addToSalad() {
     modelData.ingredients[ingredientIndex].added.toggle()
-    modelData.ingredients[ingredientIndex].nutritionFacts.fat = ingredient.nutritionFacts.fat * weightValue / 100
-    modelData.ingredients[ingredientIndex].nutritionFacts.protein = ingredient.nutritionFacts.protein * weightValue / 100
-    modelData.ingredients[ingredientIndex].nutritionFacts.carbohydrate = ingredient.nutritionFacts.carbohydrate * weightValue / 100
-    modelData.ingredients[ingredientIndex].nutritionFacts.sugar = ingredient.nutritionFacts.sugar * weightValue / 100
-    modelData.ingredients[ingredientIndex].nutritionFacts.calories = ingredient.nutritionFacts.calories * weightValue / 100
-    modelData.ingredients[ingredientIndex].weight = Int(weightValue)
+    modelData.ingredients[ingredientIndex].nutritionFacts.fat = ingredient.nutritionFactsPerGram.fat * weightValue
+    modelData.ingredients[ingredientIndex].nutritionFacts.protein = ingredient.nutritionFactsPerGram.protein * weightValue
+    modelData.ingredients[ingredientIndex].nutritionFacts.carbohydrate = ingredient.nutritionFactsPerGram.carbohydrate * weightValue
+    modelData.ingredients[ingredientIndex].nutritionFacts.sugar = ingredient.nutritionFactsPerGram.sugar * weightValue
+    modelData.ingredients[ingredientIndex].nutritionFacts.calories = ingredient.nutritionFactsPerGram.calories * weightValue
+    modelData.ingredients[ingredientIndex].weight = weightValue
     modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
   }
   

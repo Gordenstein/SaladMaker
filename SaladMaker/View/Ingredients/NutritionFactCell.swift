@@ -13,7 +13,7 @@ struct NutritionFactCell: View {
   var title: String
   
   var result: Double {
-    (amount * weigth / 100)
+    round(1000 * amount * weigth) / 1000
   }
   
   var iconName: String {
@@ -55,7 +55,7 @@ struct NutritionFactCell: View {
 
 struct NutritionFactCell_Previews: PreviewProvider {
     static var previews: some View {
-      NutritionFactCell(weigth: .constant(100), amount: 17.0, title: "Proteins")
+      NutritionFactCell(weigth: .constant(100), amount: 0.17, title: "Proteins")
         .background(Color.green)
     }
 }
