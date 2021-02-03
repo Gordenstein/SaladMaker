@@ -33,7 +33,7 @@ struct NutritionFactData: View {
         Text(String(Int(currentValue.rounded())))
           .padding(.bottom, 5)
         
-        let widthOffet: CGFloat = 40
+        let widthOffet: CGFloat = 33
         let width = geometry.size.width - widthOffet
         let calculatedHeight = max(
           CGFloat((min(currentValue, maxValue) * Double(geometry.size.height - 60)) / maxValue),

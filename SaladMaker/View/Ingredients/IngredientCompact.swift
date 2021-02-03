@@ -13,17 +13,25 @@ struct IngredientCompact: View {
   var body: some View {
     ZStack {
       itemBackgroundColor
-      Text(ingredient.name)
+      HStack {
+        Text(ingredient.name)
+          .padding(.leading, 12)
+        Spacer()
+        Text(String(ingredient.weight) + "g")
+          .layoutPriority(1)
+          .padding(.trailing, 12)
+      }
     }
-    .frame(width: 100, height: 30)
+    .frame(width: 160, height: 30)
     .cornerRadius(8)
   }
   
-  let itemBackgroundColor = Color.init(red: 237 / 255, green: 237 / 255, blue: 237 / 255, opacity: 0.8)
+  let itemBackgroundColor = Color.white.opacity(0.9)
 }
 
 struct IngredientCompact_Previews: PreviewProvider {
   static var previews: some View {
     IngredientCompact(ingredient: ModelData().ingredients[0])
+      .background(Color.green)
   }
 }

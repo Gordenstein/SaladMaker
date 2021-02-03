@@ -11,19 +11,23 @@ struct CompactListOfIngredients: View {
   var ingredients: Set<Ingredient>
   
   var body: some View {
-    GeometryReader { geometry in
-      HStack {
-        ForEach(Array(ingredients)) { ingredient in
+    ScrollView(.horizontal, showsIndicators: false) {
+      let rows = [GridItem(), GridItem(), GridItem()]
+      
+      LazyHGrid(rows: rows, alignment: .top) {
+        ForEach(Array(ingredients).sorted(by: { $0.name < $1.name })) { ingredient in
           IngredientCompact(ingredient: ingredient)
         }
       }
-      .frame(width: geometry.size.width, height: geometry.size.height, alignment: .center)
+      
     }
+    .padding(.leading, 16)
   }
 }
 
 struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
-    CompactListOfIngredients(ingredients: ModelData().addedIngredients)
+    CompactListOfIngredients(ingredients: Set<Ingredient>(ModelData().ingredients))
+      .background(Color.green)
   }
 }

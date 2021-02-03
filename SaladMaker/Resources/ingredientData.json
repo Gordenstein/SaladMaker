@@ -206,5 +206,21 @@
     "category": "Fruits",
     "added": false,
     "imageName": "pineapple"
+  },
+  {
+    "id": 13,
+    "name": "Pineapple",
+    "description": "",
+    "weight": 50,
+    "nutritionFacts": {
+      "fat": 0,
+      "protein": 1,
+      "carbohydrate": 11,
+      "sugar": 11,
+      "calories": 44.6
+    },
+    "category": "Test",
+    "added": false,
+    "imageName": "pineapple"
   }
 ]

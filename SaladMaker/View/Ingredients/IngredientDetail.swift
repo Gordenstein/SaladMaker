@@ -106,18 +106,20 @@ struct IngredientDetail: View {
             
             Spacer()
             
-            Button("Add to salad") {
+            Button(action: {
               modelData.ingredients[ingredientIndex].added = true
               modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
               presentationMode.wrappedValue.dismiss()
-            }
-            .foregroundColor(.white)
-            .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
-            .background(Color("ingredientBackground"))
-            .cornerRadius(14)
-            .font(.callout)
-            .shadow(color: Color.gray, radius: 5, y: 0)
-            .padding(.bottom, 16)
+            }, label: {
+              Text("Add to salad")
+                .foregroundColor(.white)
+                .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
+                .background(Color("ingredientBackground"))
+                .cornerRadius(14)
+                .font(.callout)
+                .shadow(color: Color.gray, radius: 5, y: 0)
+                .padding(.bottom, 16)
+            })
           }
           .padding(.horizontal, 20.0)
           .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.4 - geometry.safeAreaInsets.bottom)
