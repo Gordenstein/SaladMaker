@@ -15,6 +15,15 @@ struct IngredientDetail: View {
   var ingredientIndex: Int {
     modelData.ingredients.firstIndex(where: { $0.id == ingredient.id })!
   }
+    
+  @State private var weightValue: Double
+  
+  init(modelData: EnvironmentObject<ModelData> = EnvironmentObject(), presentationMode: Environment<Binding<PresentationMode>> = Environment(\.presentationMode), ingredient: Ingredient) {
+    self._modelData = modelData
+    self._presentationMode = presentationMode
+    self.ingredient = ingredient
+    self._weightValue = .init(wrappedValue: Double(ingredient.weight))
+  }
   
   var body: some View {
     GeometryReader { geometry in
@@ -53,15 +62,15 @@ struct IngredientDetail: View {
             
             HStack(alignment: .center) {
               VStack(alignment: .leading, spacing: 0, content: {
-                NutritionFactCell(value: ingredient.nutritionFacts.fat, title: "Fats")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.fat, title: "Fats")
                 Spacer()
-                NutritionFactCell(value: ingredient.nutritionFacts.protein, title: "Proteins")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.protein, title: "Proteins")
                 Spacer()
-                NutritionFactCell(value: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.carbohydrate, title: "Carbohydrate")
                 Spacer()
-                NutritionFactCell(value: ingredient.nutritionFacts.sugar, title: "Sugar")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.sugar, title: "Sugar")
                 Spacer()
-                NutritionFactCell(value: ingredient.nutritionFacts.calories, title: "Calories")
+                NutritionFactCell(weigth: $weightValue, amount: ingredient.nutritionFacts.calories, title: "Calories")
                 Spacer()
               })
               
@@ -80,13 +89,16 @@ struct IngredientDetail: View {
             VStack(alignment: .leading, spacing: 6) {
               Text("Details").bold()
               
-              HStack {
-                Text("Amount").bold()
-                  .padding(.horizontal)
-                Spacer()
-                Text("100g")
-                  .padding(.horizontal)
-              }
+              Stepper(onIncrement: increaseWeight,
+              onDecrement: decreaseWeight) {
+                HStack(spacing: 0) {
+                  Text("Amount: ")
+                  Text(String(Int(weightValue)))
+                    .fontWeight(.bold)
+                    .padding(.trailing, 2)
+                  Text("g")
+                }
+              }.padding(.horizontal)
               .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
               .background(Color.white)
               .cornerRadius(14)
@@ -107,14 +119,17 @@ struct IngredientDetail: View {
             Spacer()
             
             Button(action: {
-              modelData.ingredients[ingredientIndex].added = true
-              modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
+              if !self.ingredient.added {
+                self.addToSalad()
+              } else {
+                removeFromSalad()
+              }
               presentationMode.wrappedValue.dismiss()
             }, label: {
-              Text("Add to salad")
+              Text(self.ingredient.added ? "Remove" : "Add to salad")
                 .foregroundColor(.white)
                 .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
-                .background(Color("ingredientBackground"))
+                .background(self.ingredient.added ? Color("removeButtonBackground") : Color("ingredientBackground"))
                 .cornerRadius(14)
                 .font(.callout)
                 .shadow(color: Color.gray, radius: 5, y: 0)
@@ -127,6 +142,36 @@ struct IngredientDetail: View {
       }
     }
     .navigationBarHidden(true)
+  }
+  
+  private func increaseWeight() {
+    self.weightValue += 10
+    if self.weightValue >= 500 {
+      self.weightValue = 500
+    }
+  }
+  
+  private func decreaseWeight() {
+    self.weightValue -= 10
+    if self.weightValue < 10 {
+      self.weightValue = 10
+    }
+  }
+  
+  private func addToSalad() {
+    modelData.ingredients[ingredientIndex].added.toggle()
+    modelData.ingredients[ingredientIndex].nutritionFacts.fat = ingredient.nutritionFacts.fat * weightValue / 100
+    modelData.ingredients[ingredientIndex].nutritionFacts.protein = ingredient.nutritionFacts.protein * weightValue / 100
+    modelData.ingredients[ingredientIndex].nutritionFacts.carbohydrate = ingredient.nutritionFacts.carbohydrate * weightValue / 100
+    modelData.ingredients[ingredientIndex].nutritionFacts.sugar = ingredient.nutritionFacts.sugar * weightValue / 100
+    modelData.ingredients[ingredientIndex].nutritionFacts.calories = ingredient.nutritionFacts.calories * weightValue / 100
+    modelData.ingredients[ingredientIndex].weight = Int(weightValue)
+    modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
+  }
+  
+  private func removeFromSalad() {
+    modelData.addedIngredients.remove( modelData.ingredients[ingredientIndex])
+    modelData.ingredients[ingredientIndex].added.toggle()
   }
 }
 

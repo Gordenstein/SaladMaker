@@ -17,13 +17,10 @@ struct AddToSaladButton: View {
     Button(action: {
       if !added {
         added.toggle()
-//        modelData.ingredients[ingredientIndex].added = true
         modelData.addedIngredients.insert( modelData.ingredients[ingredientIndex])
       } else {
-//        print("Element for deletion: \(modelData.ingredients[ingredientIndex])")
         modelData.addedIngredients.remove( modelData.ingredients[ingredientIndex])
         added.toggle()
-//        modelData.ingredients[ingredientIndex].added = false
       }
     }) {
       Image(systemName: added ? "checkmark.circle.fill" : "plus.circle")
