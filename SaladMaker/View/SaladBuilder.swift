@@ -15,6 +15,8 @@ struct SaladBuilder: View {
   @GestureState private var slideOffset = CGSize.zero
   @State private var shouldScrooll = false
   
+  @State private var buildSaladAction: Int?
+  
   var body: some View {
     NavigationView {
       ZStack(alignment: .top) {
@@ -26,14 +28,39 @@ struct SaladBuilder: View {
         .ignoresSafeArea()
         
         VStack(spacing: 0) {
-          SaladCompactView(salad: modelData.currentSalad)
-        }
-        .ignoresSafeArea(.all, edges: .bottom)
-        .toolbar {
-          Button(action: { showingProfile.toggle() }) {
-            Image(systemName: "person.crop.circle")
+          HStack {
+            Text("Build your salad")
+              .foregroundColor(.white)
+              .font(.largeTitle)
+            
+            Spacer()
+            
+            Button(action: { showingProfile.toggle() }) {
+              Image(systemName: "person.crop.circle")
+                .font(.largeTitle)
+                .foregroundColor(.white)
+            }
           }
+          .padding(.horizontal)
+          
+          SaladCompactView()
+          
+          NavigationLink(destination: SaladDetail(salad: modelData.currentSalad), tag: 1, selection: $buildSaladAction) {
+            EmptyView()
+          }
+          
+          Button(action: {
+            // Build salad
+            self.buildSaladAction = 1
+          }, label: {
+            Text("Mix it")
+              .foregroundColor(.white)
+              .font(.title)
+          })
+          .padding()
+         
         }
+//        .ignoresSafeArea(.all, edges: .bottom)
         .sheet(isPresented: $showingProfile) {
           ProfileSummary()
             .environmentObject(modelData)
@@ -53,7 +80,7 @@ struct SaladBuilder: View {
                                       self.currentSliderPositionY = 500
                                       self.shouldScrooll = false
                                     } else if value.translation.height < -150 {
-                                      self.currentSliderPositionY = 300
+                                      self.currentSliderPositionY = 280
                                       self.shouldScrooll = true
                                     }
                                   }))
