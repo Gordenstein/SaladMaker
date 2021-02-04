@@ -1,5 +1,5 @@
 //
-//  AddToSaladButton.swift
+//  AddToSaladRoundButton.swift
 //  SaladMaker
 //
 //  Created by Eugene Gordenstein on 1/27/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddToSaladButton: View {
+struct AddToSaladRoundButton: View {
   @EnvironmentObject var modelData: ModelData
   @Binding var added: Bool
   
@@ -42,7 +42,7 @@ struct AddToSaladButton: View {
 
 struct AddToSaladButton_Previews: PreviewProvider {
   static var previews: some View {
-    AddToSaladButton(added: .constant(true), ingredientIndex: 0)
+    AddToSaladRoundButton(added: .constant(true), ingredientIndex: 0)
       .environmentObject(ModelData())
   }
 }

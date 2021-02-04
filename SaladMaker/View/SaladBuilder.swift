@@ -80,7 +80,7 @@ struct SaladBuilder: View {
                                       self.currentSliderPositionY = 500
                                       self.shouldScrooll = false
                                     } else if value.translation.height < -150 {
-                                      self.currentSliderPositionY = 280
+                                      self.currentSliderPositionY = 270
                                       self.shouldScrooll = true
                                     }
                                   }))

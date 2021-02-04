@@ -30,7 +30,7 @@ struct CategoryItem: View {
           .padding(.bottom, 5)
           
         
-        AddToSaladButton(added: $modelData.ingredients[ingredientIndex].added, ingredientIndex: ingredientIndex)
+        AddToSaladRoundButton(added: $modelData.ingredients[ingredientIndex].added, ingredientIndex: ingredientIndex)
           .frame(width: 25, height: 25)
           .padding([.trailing, .top], 4)
           .animation(.easeInOut)

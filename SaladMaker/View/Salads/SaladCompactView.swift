@@ -16,7 +16,8 @@ struct SaladCompactView: View {
         .frame(height: 200)
         .background(Color.init(UIColor.secondarySystemBackground))
         .cornerRadius(16)
-        .padding()
+        .padding(.horizontal)
+        .padding(.top)
       
       CompactListOfIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 120)

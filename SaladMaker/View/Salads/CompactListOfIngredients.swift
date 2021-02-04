@@ -23,7 +23,7 @@ struct CompactListOfIngredients: View {
       let rows = [GridItem(), GridItem(), GridItem()]
       
       ZStack(alignment: .leading) {
-        LazyHGrid(rows: rows, alignment: .top) {
+        LazyHGrid(rows: rows, alignment: .center) {
           ForEach(0..<placeholderAmount) {index in
             if index < ingredients.count {
               IngredientCompactPlaceholder(transparent: true)
@@ -33,7 +33,7 @@ struct CompactListOfIngredients: View {
           }
         }
         
-        LazyHGrid(rows: rows, alignment: .top) {
+        LazyHGrid(rows: rows, alignment: .center) {
           ForEach(Array(ingredients).sorted(by: { $0.name < $1.name })) { ingredient in
             IngredientCompact(ingredient: ingredient)
           }
@@ -53,6 +53,6 @@ struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
     CompactListOfIngredients(ingredients: Set<Ingredient>(ModelData().ingredients))
       .background(Color.green)
-      .frame(height: 120)
+      .frame(height: 220)
   }
 }

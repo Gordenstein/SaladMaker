@@ -15,7 +15,7 @@ struct IngredientDetail: View {
   var ingredientIndex: Int {
     modelData.ingredients.firstIndex(where: { $0.id == ingredient.id })!
   }
-    
+  
   @State private var weightValue: Double
   
   init(modelData: EnvironmentObject<ModelData> = EnvironmentObject(), presentationMode: Environment<Binding<PresentationMode>> = Environment(\.presentationMode), ingredient: Ingredient) {
@@ -84,13 +84,13 @@ struct IngredientDetail: View {
             .padding(.horizontal, 20)
           }
           .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.6 - geometry.safeAreaInsets.top)
-                    
+          
           VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 6) {
               Text("Details").bold()
               
               Stepper(onIncrement: increaseWeight,
-              onDecrement: decreaseWeight) {
+                      onDecrement: decreaseWeight) {
                 HStack(spacing: 0) {
                   Text("Amount: ")
                   Text(String(Int(weightValue)))
@@ -106,7 +106,6 @@ struct IngredientDetail: View {
             .padding(.top, 16)
             
             Spacer()
-
             
             VStack(alignment: .leading, spacing: 6) {
               Text("Desctiption").bold()
@@ -118,23 +117,14 @@ struct IngredientDetail: View {
             
             Spacer()
             
-            Button(action: {
-              if !self.ingredient.added {
-                self.addToSalad()
-              } else {
-                removeFromSalad()
-              }
-              presentationMode.wrappedValue.dismiss()
-            }, label: {
-              Text(self.ingredient.added ? "Remove" : "Add to salad")
-                .foregroundColor(.white)
-                .frame(width: geometry.size.width - 45, height: 50, alignment: .center)
-                .background(self.ingredient.added ? Color("removeButtonBackground") : Color("ingredientBackground"))
-                .cornerRadius(14)
-                .font(.callout)
-                .shadow(color: Color.gray, radius: 5, y: 0)
-                .padding(.bottom, 16)
-            })
+            ButtonBlock(added: self.ingredient.added,
+                        addAction: addToSaladAndDismiss,
+                        addTitle: "Add to salad",
+                        removeAtion: removeFromSaladAndDismiss,
+                        removeTitle: "Remove",
+                        updateAction: updateAndDismiss,
+                        updateTitle: "Update")
+              .frame(width: geometry.size.width - 45, height: 66)
           }
           .padding(.horizontal, 20.0)
           .frame(height: (geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom) * 0.4 - geometry.safeAreaInsets.bottom)
@@ -158,8 +148,28 @@ struct IngredientDetail: View {
     }
   }
   
-  private func addToSalad() {
-    modelData.ingredients[ingredientIndex].added.toggle()
+  private func addToSaladAndDismiss() {
+    modelData.ingredients[ingredientIndex].added = true
+    addToSaladAction()
+    dismissView()
+  }
+  
+  private func removeFromSaladAndDismiss() {
+    removeFromSaladAction()
+    modelData.ingredients[ingredientIndex].added = false
+    dismissView()
+  }
+  
+  private func updateAndDismiss() {
+    removeFromSaladAction()
+    addToSaladAction()
+    dismissView()
+  }
+  
+  private func addToSaladAction() {
+    guard !modelData.addedIngredients.contains(modelData.ingredients[ingredientIndex]) else {
+      return
+    }
     modelData.ingredients[ingredientIndex].nutritionFacts.fat = ingredient.nutritionFactsPerGram.fat * weightValue
     modelData.ingredients[ingredientIndex].nutritionFacts.protein = ingredient.nutritionFactsPerGram.protein * weightValue
     modelData.ingredients[ingredientIndex].nutritionFacts.carbohydrate = ingredient.nutritionFactsPerGram.carbohydrate * weightValue
@@ -169,9 +179,12 @@ struct IngredientDetail: View {
     modelData.addedIngredients.insert(modelData.ingredients[ingredientIndex])
   }
   
-  private func removeFromSalad() {
-    modelData.addedIngredients.remove( modelData.ingredients[ingredientIndex])
-    modelData.ingredients[ingredientIndex].added.toggle()
+  private func removeFromSaladAction() {
+    modelData.addedIngredients.remove(modelData.ingredients[ingredientIndex])
+  }
+  
+  private func dismissView() {
+    presentationMode.wrappedValue.dismiss()
   }
 }
 
@@ -180,8 +193,8 @@ struct IngredientDetail_Previews: PreviewProvider {
   
   static var previews: some View {
 //    ForEach(["iPhone 8", "iPhone 12 Pro", "iPhone XS Max"], id: \.self) { deviceName in
-      IngredientDetail(ingredient: modelData.ingredients[0])
-        .environmentObject(modelData)
+    IngredientDetail(ingredient: modelData.ingredients[0])
+      .environmentObject(modelData)
 //        .previewDevice(PreviewDevice(rawValue: deviceName))
 //    }
   }
