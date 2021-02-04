@@ -44,7 +44,7 @@ struct IngredientDetail: View {
                 Image(systemName: "chevron.backward")
                 Text("Salad")
               })
-              .padding(.horizontal)
+              .padding(.leading, 8)
               .foregroundColor(.white)
               .font(.headline)
               

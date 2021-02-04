@@ -1,13 +1,13 @@
 //
-//  CategoryItem.swift
+//  SaladIngredient.swift
 //  SaladMaker
 //
-//  Created by Eugene Gordenstein on 1/27/21.
+//  Created by Eugene Gordenstein on 2/4/21.
 //
 
 import SwiftUI
 
-struct CategoryItem: View {
+struct SaladIngredient: View {
   @EnvironmentObject var modelData: ModelData
   var ingredient: Ingredient
   
@@ -18,7 +18,7 @@ struct CategoryItem: View {
   var body: some View {
     ZStack {
       Color.white
-      VStack {
+      VStack(spacing: 6) {
         ZStack(alignment: .bottomTrailing) {
           ingredient.image
             .renderingMode(.original)
@@ -27,31 +27,31 @@ struct CategoryItem: View {
             .padding(18)
             .background(Color(UIColor.secondarySystemBackground))
             .cornerRadius(30)
-            .padding([.trailing, .bottom], 5)
-          
-          AddToSaladRoundButton(added: $modelData.ingredients[ingredientIndex].added, ingredientIndex: ingredientIndex)
-            .frame(width: 36, height: 36)
-            .background(Color.white)
-            .cornerRadius(30)
         }
-        .padding([.top, .leading], 5)
+        
         
         Text(ingredient.name)
           .fontWeight(.bold)
           .foregroundColor(.primary)
           .font(.subheadline)
+          .padding(.top, 3)
+        
+        Text(String(Int(ingredient.weight)) + "g")
+          .fontWeight(.light)
+          .foregroundColor(.primary)
+          .font(.subheadline)
       }
     }
-    .frame(width: 115, height: 150, alignment: .center)
+    .frame(width: 115, height: 165, alignment: .center)
     .cornerRadius(30)
   }
 }
 
-struct CategoryItem_Previews: PreviewProvider {
+struct SaladIngredient_Previews: PreviewProvider {
   static let modelData = ModelData()
   
   static var previews: some View {
-    CategoryItem(ingredient: modelData.ingredients[0])
+    SaladIngredient(ingredient: modelData.ingredients[0])
       .environmentObject(modelData)
       .background(Color.gray)
   }

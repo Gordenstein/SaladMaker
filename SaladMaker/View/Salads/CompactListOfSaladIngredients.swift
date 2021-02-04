@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CompactListOfIngredients: View {
+struct CompactListOfSaladIngredients: View {
   var ingredients: Set<Ingredient>
   
   var placeholderAmount: Int {
@@ -26,16 +26,16 @@ struct CompactListOfIngredients: View {
         LazyHGrid(rows: rows, alignment: .center) {
           ForEach(0..<placeholderAmount) {index in
             if index < ingredients.count {
-              IngredientCompactPlaceholder(transparent: true)
+              CompactSaladIngredientPlaceholder(transparent: true)
             } else {
-              IngredientCompactPlaceholder(transparent: false)
+              CompactSaladIngredientPlaceholder(transparent: false)
             }
           }
         }
         
         LazyHGrid(rows: rows, alignment: .center) {
           ForEach(Array(ingredients).sorted(by: { $0.name < $1.name })) { ingredient in
-            IngredientCompact(ingredient: ingredient)
+            CompactSaladIngredient(ingredient: ingredient)
           }
         }
         .padding(.trailing, 16)
@@ -51,7 +51,7 @@ struct CompactListOfIngredients: View {
 
 struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
-    CompactListOfIngredients(ingredients: Set<Ingredient>(ModelData().ingredients))
+    CompactListOfSaladIngredients(ingredients: Set<Ingredient>(ModelData().ingredients))
       .background(Color.green)
       .frame(height: 220)
   }

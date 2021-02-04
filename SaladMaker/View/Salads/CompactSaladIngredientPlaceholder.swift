@@ -1,5 +1,5 @@
 //
-//  IngredientCompactPlaceholder.swift
+//  CompactSaladIngredientPlaceholder.swift
 //  SaladMaker
 //
 //  Created by Eugene Gordenstein on 2/3/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientCompactPlaceholder: View {
+struct CompactSaladIngredientPlaceholder: View {
   var transparent: Bool
   
   var body: some View {
@@ -23,7 +23,7 @@ struct IngredientCompactPlaceholder: View {
 
 struct IngredientCompactPlaceholder_Previews: PreviewProvider {
     static var previews: some View {
-      IngredientCompactPlaceholder(transparent: false)
+      CompactSaladIngredientPlaceholder(transparent: false)
           .background(Color.green)
     }
 }

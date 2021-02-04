@@ -19,7 +19,7 @@ struct SaladCompactView: View {
         .padding(.horizontal)
         .padding(.top)
       
-      CompactListOfIngredients(ingredients: modelData.addedIngredients)
+      CompactListOfSaladIngredients(ingredients: modelData.addedIngredients)
         .frame(height: 120)
         .padding(.vertical)
     }

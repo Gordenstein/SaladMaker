@@ -1,5 +1,5 @@
 //
-//  IngredientCompact.swift
+//  CompactSaladIngredient.swift
 //  SaladMaker
 //
 //  Created by Eugene Gordenstein on 1/27/21.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct IngredientCompact: View {
+struct CompactSaladIngredient: View {
   var ingredient: Ingredient
   
   var body: some View {
@@ -31,7 +31,7 @@ struct IngredientCompact: View {
 
 struct IngredientCompact_Previews: PreviewProvider {
   static var previews: some View {
-    IngredientCompact(ingredient: ModelData().ingredients[0])
+    CompactSaladIngredient(ingredient: ModelData().ingredients[0])
       .background(Color.green)
   }
 }

@@ -50,7 +50,8 @@ struct SaladBuilder: View {
           }
           
           Button(action: {
-            // Build salad
+            let newSalad = Salad(id: 0, name: "New Salad", ingredients: Array(modelData.addedIngredients), nutritionFacts: modelData.currentNutritionFacts)
+            modelData.currentSalad = newSalad
             self.buildSaladAction = 1
           }, label: {
             Text("Mix it")
