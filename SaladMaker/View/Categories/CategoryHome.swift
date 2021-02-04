@@ -12,10 +12,19 @@ struct CategoryHome: View {
   @State private var caregoryType = "first"
   @Binding var shouldScroll: Bool
   
+  
   init(modelData: EnvironmentObject<ModelData> = EnvironmentObject(), shouldScroll: Binding<Bool>) {
     self._modelData = modelData
     self._shouldScroll = shouldScroll
     UIScrollView.appearance().bounces = false
+  }
+  
+  var categories: [Dictionary<String, [Ingredient]>.Keys.Element] {
+    if caregoryType == "first" {
+      return modelData.categoriesOne.keys.sorted()
+    } else {
+      return modelData.categoriesTwo.keys.sorted()
+    }
   }
   
   var body: some View {
@@ -27,29 +36,37 @@ struct CategoryHome: View {
           .padding(.top, 5.5)
         
         Picker("", selection: $caregoryType) {
-          Text("First").tag("first")
-          Text("Second").tag("second")
+          Text("Сomposition").tag("first")
+          Text("Type").tag("second")
         }
         .pickerStyle(SegmentedPickerStyle())
         .padding(.horizontal, 90)
         .padding(.top, 10)
         .padding(.bottom)
       }
-      .background(Color.white, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+      .background(Color.white, alignment: .center)
       
       Color.init(UIColor.opaqueSeparator)
         .frame(height: 1)
       
       ScrollView(axes, showsIndicators: false) {
         VStack {
-          ForEach(modelData.categories.keys.sorted(), id: \.self) { key in
-            CategoryRow(categoryName: key, items: modelData.categories[key]!)
+          ForEach(categories, id: \.self) { key in
+            CategoryRow(categoryName: key, items: getItemForKey(key: key))
           }
         }
         .padding(.top)
         .padding(.bottom, 86)
-        .background(Color.white, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        .background(Color.white, alignment: .center)
       }
+    }
+  }
+  
+  func getItemForKey(key: String) -> [Ingredient] {
+    if caregoryType == "first" {
+      return modelData.categoriesOne[key]!
+    } else {
+      return modelData.categoriesTwo[key]!
     }
   }
   

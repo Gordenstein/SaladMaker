@@ -17,11 +17,19 @@ struct Ingredient: Hashable, Codable, Identifiable {
   var added: Bool
   var weight: Double
   
-  var category: Category
-  enum Category: String, CaseIterable, Codable {
-    case vegetablesOne = "Vegetables"
+  var categoryOne: CategoryOne
+  enum CategoryOne: String, CaseIterable, Codable {
+    case lowCalories = "Low Calories"
+    case proteinRich = "Protein Rich"
+    case sweet = "Sweet"
+    case fatRich = "Fat Rich"
+  }
+  
+  var categoryTwo: CategoryTwo
+  enum CategoryTwo: String, CaseIterable, Codable {
+    case vegetables = "Vegetables"
+    case greenVegetables = "Green Vegetables"
     case fruits = "Fruits"
-    case test = "Test"
   }
   
   private var imageName: String
@@ -37,7 +45,8 @@ struct Ingredient: Hashable, Codable, Identifiable {
     self.nutritionFactsPerGram = try container.decode(NutritionFacts.self, forKey: CodingKeys.nutritionFactsPerGram)
     self.added = try container.decode(Bool.self, forKey: CodingKeys.added)
     self.weight = try container.decode(Double.self, forKey: CodingKeys.weight)
-    self.category = try container.decode(Ingredient.Category.self, forKey: CodingKeys.category)
+    self.categoryOne = try container.decode(Ingredient.CategoryOne.self, forKey: CodingKeys.categoryOne)
+    self.categoryTwo = try container.decode(Ingredient.CategoryTwo.self, forKey: CodingKeys.categoryTwo)
     self.imageName = try container.decode(String.self, forKey: CodingKeys.imageName)
     self.nutritionFacts = NutritionFacts()
   }

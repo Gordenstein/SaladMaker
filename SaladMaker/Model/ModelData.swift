@@ -24,10 +24,17 @@ final class ModelData: ObservableObject {
     }
   }
   
-  var categories: [String: [Ingredient]] {
+  var categoriesOne: [String: [Ingredient]] {
     Dictionary(
       grouping: ingredients,
-      by: { $0.category.rawValue }
+      by: { $0.categoryOne.rawValue }
+    )
+  }
+  
+  var categoriesTwo: [String: [Ingredient]] {
+    Dictionary(
+      grouping: ingredients,
+      by: { $0.categoryTwo.rawValue }
     )
   }
 }

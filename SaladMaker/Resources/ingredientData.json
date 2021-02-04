@@ -11,7 +11,8 @@
       "sugar": 0.01,
       "calories": 0.1
     },
-    "category": "Vegetables",
+    "categoryOne": "Low Calories",
+    "categoryTwo": "Green Vegetables",
     "added": false,
     "imageName": "cucumber"
   },
@@ -27,7 +28,8 @@
       "sugar": 0.02,
       "calories": 0.17
     },
-    "category": "Vegetables",
+    "categoryOne": "Low Calories",
+    "categoryTwo":  "Vegetables",
     "added": false,
     "imageName": "tomato"
   },
@@ -43,7 +45,8 @@
       "sugar": 0.02,
       "calories": 0.12
     },
-    "category": "Vegetables",
+    "categoryOne": "Low Calories",
+    "categoryTwo":  "Green Vegetables",
     "added": false,
     "imageName": "lettuce"
   },
@@ -59,7 +62,8 @@
       "sugar": 0.03,
       "calories": 0.17
     },
-    "category": "Vegetables",
+    "categoryOne": "Low Calories",
+    "categoryTwo":  "Vegetables",
     "added": false,
     "imageName": "bell_papper"
   },
@@ -75,7 +79,8 @@
       "sugar": 0.013,
       "calories": 0.3
     },
-    "category": "Vegetables",
+    "categoryOne": "Protein Rich",
+    "categoryTwo":  "Green Vegetables",
     "added": false,
     "imageName": "broccoli"
   },
@@ -91,7 +96,8 @@
       "sugar": 0.07,
       "calories": 0.38
     },
-    "category": "Vegetables",
+    "categoryOne": "Protein Rich",
+    "categoryTwo":  "Vegetables",
     "added": false,
     "imageName": "carrot"
   },
@@ -107,7 +113,8 @@
       "sugar": 0.024,
       "calories": 0.24
     },
-    "category": "Vegetables",
+    "categoryOne": "Protein Rich",
+    "categoryTwo":  "Green Vegetables",
     "added": false,
     "imageName": "green_beans"
   },
@@ -123,7 +130,8 @@
       "sugar": 0.022,
       "calories": 0.12
     },
-    "category": "Vegetables",
+    "categoryOne": "Low Calories",
+    "categoryTwo":  "Vegetables",
     "added": false,
     "imageName": "radishes"
   },
@@ -139,7 +147,8 @@
       "sugar": 0.06,
       "calories": 1
     },
-    "category": "Vegetables",
+    "categoryOne": "Protein Rich",
+    "categoryTwo":  "Vegetables",
     "added": false,
     "imageName": "sweet_corn"
   },
@@ -155,7 +164,8 @@
       "sugar": 0.1,
       "calories": 0.53
     },
-    "category": "Fruits",
+    "categoryOne": "Sweet",
+    "categoryTwo":  "Fruits",
     "added": false,
     "imageName": "apple"
   },
@@ -171,7 +181,8 @@
       "sugar": 0,
       "calories": 1.67
     },
-    "category": "Fruits",
+    "categoryOne": "Fat Rich",
+    "categoryTwo":  "Fruits",
     "added": false,
     "imageName": "avocado"
   },
@@ -187,7 +198,8 @@
       "sugar": 0.073,
       "calories": 0.39
     },
-    "category": "Fruits",
+    "categoryOne": "Sweet",
+    "categoryTwo":  "Fruits",
     "added": false,
     "imageName": "grapefruit"
   },
@@ -203,23 +215,8 @@
       "sugar": 0.11,
       "calories": 0.446
     },
-    "category": "Fruits",
-    "added": false,
-    "imageName": "pineapple"
-  },
-  {
-    "id": 13,
-    "name": "Pineapple",
-    "description": "",
-    "weight": 50,
-    "nutritionFactsPerGram": {
-      "fat": 0,
-      "protein": 0.01,
-      "carbohydrate": 0.11,
-      "sugar": 0.11,
-      "calories": 0.446
-    },
-    "category": "Test",
+    "categoryOne": "Sweet",
+    "categoryTwo":  "Fruits",
     "added": false,
     "imageName": "pineapple"
   }

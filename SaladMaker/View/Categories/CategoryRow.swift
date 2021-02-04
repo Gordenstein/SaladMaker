@@ -38,7 +38,7 @@ struct CategoryRow: View {
 struct CategoryRow_Previews: PreviewProvider {
   static let modelData = ModelData()
   static var previews: some View {
-    CategoryRow(categoryName: modelData.ingredients[0].category.rawValue, items: modelData.ingredients)
+    CategoryRow(categoryName: modelData.ingredients[0].categoryOne.rawValue, items: modelData.ingredients)
       .environmentObject(modelData)
   }
 }
