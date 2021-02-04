@@ -15,20 +15,20 @@ struct CategoryRow: View {
     VStack(alignment: .leading, spacing: 5) {
       Text(self.categoryName)
         .font(.headline)
-        .padding(.leading, 15)
+        .padding(.leading, 20)
         .padding(.top, 5)
       ScrollView(.horizontal, showsIndicators: false) {
-        HStack(alignment: .top, spacing: 0) {
+        HStack(alignment: .top, spacing: 8) {
           ForEach(self.items) { ingredient in
             NavigationLink(destination: IngredientDetail(ingredient: ingredient)) {
               CategoryItem(ingredient: ingredient)
+                .shadow(color: Color(UIColor.secondarySystemFill), radius: 6, y: 5)
             }
           }
         }
-        .frame(height: CategoryRow.scrollViewHeight)
-        .padding(.trailing, 15)
+        .padding(.leading, 20)
+        .padding([.vertical, .trailing])
       }
-      .frame(height: CategoryRow.scrollViewHeight)
     }
   }
   

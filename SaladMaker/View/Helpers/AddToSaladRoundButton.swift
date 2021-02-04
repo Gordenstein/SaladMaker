@@ -23,8 +23,9 @@ struct AddToSaladRoundButton: View {
         added.toggle()
       }
     }) {
-      Image(systemName: added ? "checkmark.circle.fill" : "plus.circle")
-        .foregroundColor(added ? Color.green : Color.blue)
+      Image(systemName: added ? "checkmark.circle.fill" : "plus.circle.fill")
+        .foregroundColor(added ? Color.green : Color(UIColor.systemGray))
+        .font(Font.system(size: 30))
     }
   }
   
@@ -42,7 +43,7 @@ struct AddToSaladRoundButton: View {
 
 struct AddToSaladButton_Previews: PreviewProvider {
   static var previews: some View {
-    AddToSaladRoundButton(added: .constant(true), ingredientIndex: 0)
+    AddToSaladRoundButton(added: .constant(false), ingredientIndex: 0)
       .environmentObject(ModelData())
   }
 }

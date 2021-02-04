@@ -16,33 +16,35 @@ struct CategoryItem: View {
   }
   
   var body: some View {
-    VStack(alignment: .leading) {
-      ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top), content: {
-        itemBackgroundColor
-        
-        ingredient.image
-          .renderingMode(.original)
-          .resizable()
-          .frame(width: 75, height: 75)
-          .padding(.top, 20)
-          .padding(.trailing, 20)
-          .padding(.leading, 5)
-          .padding(.bottom, 5)
+    
+    ZStack {
+      Color.white
+      VStack {
+        ZStack(alignment: .bottomTrailing) {
+          ingredient.image
+            .renderingMode(.original)
+            .resizable()
+            .frame(width: 60, height: 60)
+            .padding(18)
+            .background(Color(UIColor.secondarySystemBackground))
+            .cornerRadius(30)
+            .padding([.trailing, .bottom], 5)
           
+          AddToSaladRoundButton(added: $modelData.ingredients[ingredientIndex].added, ingredientIndex: ingredientIndex)
+            .frame(width: 36, height: 36)
+            .background(Color.white)
+            .cornerRadius(30)
+        }
+        .padding([.top, .leading], 5)
         
-        AddToSaladRoundButton(added: $modelData.ingredients[ingredientIndex].added, ingredientIndex: ingredientIndex)
-          .frame(width: 25, height: 25)
-          .padding([.trailing, .top], 4)
-          .animation(.easeInOut)
-      })
-      .frame(width: 100, height: 100)
-      .cornerRadius(8)
-      
-      Text(ingredient.name)
-        .foregroundColor(.primary)
-        .font(.caption)
+        Text(ingredient.name)
+          .fontWeight(.bold)
+          .foregroundColor(.primary)
+          .font(.subheadline)
+      }
     }
-    .padding(.leading, 15)
+    .frame(width: 115, height: 150, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+    .cornerRadius(30)
   }
   
   let itemBackgroundColor = Color.init(red: 237 / 255, green: 237 / 255, blue: 237 / 255, opacity: 0.8)
@@ -54,5 +56,6 @@ struct CategoryItem_Previews: PreviewProvider {
   static var previews: some View {
     CategoryItem(ingredient: modelData.ingredients[0])
       .environmentObject(modelData)
+      .background(Color.gray)
   }
 }

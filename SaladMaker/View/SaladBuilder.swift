@@ -60,7 +60,6 @@ struct SaladBuilder: View {
           .padding()
          
         }
-//        .ignoresSafeArea(.all, edges: .bottom)
         .sheet(isPresented: $showingProfile) {
           ProfileSummary()
             .environmentObject(modelData)
@@ -87,8 +86,6 @@ struct SaladBuilder: View {
             .animation(.default)
         }
       }
-//      .navigationTitle("Salad")
-//      .navigationBarTitleDisplayMode(.inline)
       .navigationBarHidden(true)
     }
   }
