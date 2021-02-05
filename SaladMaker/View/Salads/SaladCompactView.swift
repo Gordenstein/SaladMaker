@@ -29,7 +29,7 @@ struct SaladCompactView: View {
 
 struct SaladCompactView_Previews: PreviewProvider {
   static let modelData = ModelData()
-  static let salad = Salad(id: 0, name: "First Salad", ingredients: modelData.ingredients, nutritionFacts: NutritionFacts())
+  static let salad = Salad()
   
   static var previews: some View {
     SaladCompactView()

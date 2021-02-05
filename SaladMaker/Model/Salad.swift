@@ -9,9 +9,15 @@ import Foundation
 import SwiftUI
 
 struct Salad: Hashable, Codable, Identifiable {
-  var id: Int
+  var id: UUID
   var name: String
   var ingredients: [Ingredient]
-  
   var nutritionFacts: NutritionFacts
+  
+  init() {
+    self.id = UUID()
+    self.name = ""
+    self.ingredients = []
+    self.nutritionFacts = NutritionFacts()
+  }
 }

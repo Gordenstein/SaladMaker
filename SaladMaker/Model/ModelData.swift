@@ -9,10 +9,11 @@ import Foundation
 import Combine
 
 final class ModelData: ObservableObject {
-  @Published var ingredients: [Ingredient] = load("ingredientData.json")
+  @Published var ingredients: [Ingredient] = DataManager.default.load("ingredientData.json")
   @Published var addedIngredients = Set<Ingredient>()
   
-  var currentSalad: Salad = Salad(id: 0, name: "New Salad", ingredients: [], nutritionFacts: NutritionFacts())
+  var saladHistory = DataManager.default.loadData()
+  var currentSalad = Salad()
   
   var currentNutritionFacts: NutritionFacts {
     addedIngredients.reduce(into: NutritionFacts()) { (result, ingredient) in
@@ -36,27 +37,5 @@ final class ModelData: ObservableObject {
       grouping: ingredients,
       by: { $0.categoryTwo.rawValue }
     )
-  }
-}
-
-func load<T: Decodable>(_ filename: String) -> T {
-  let data: Data
-  
-  guard let file = Bundle.main.url(forResource: filename, withExtension: nil)
-  else {
-    fatalError("Couldn't find \(filename) in main bundle.")
-  }
-  
-  do {
-    data = try Data(contentsOf: file)
-  } catch {
-    fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-  }
-  
-  do {
-    let decoder = JSONDecoder()
-    return try decoder.decode(T.self, from: data)
-  } catch {
-    fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
   }
 }

@@ -27,6 +27,8 @@ struct SaladDetail: View {
         Spacer()
         
         Button(action: {
+          modelData.saladHistory.append(modelData.currentSalad)
+          DataManager.default.saveData(objectForSaving: modelData.saladHistory)
           modelData.addedIngredients = []
           for i in 0..<modelData.ingredients.count {
             modelData.ingredients[i].added = false
@@ -73,7 +75,7 @@ struct SaladDetail: View {
 
 struct SaladDetail_Previews: PreviewProvider {
   static var previews: some View {
-    let salad = Salad(id: 0, name: "New salad", ingredients: ModelData().ingredients, nutritionFacts: NutritionFacts())
+    let salad = Salad()
     SaladDetail(salad: salad)
       .environmentObject(ModelData())
   }
