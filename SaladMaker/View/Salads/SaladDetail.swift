@@ -53,12 +53,33 @@ struct SaladDetail: View {
       .padding(.vertical, 4)
       .foregroundColor(.white)
       
-      ScrollView {
-        let rows = [GridItem(), GridItem(),]
-        LazyVGrid(columns: rows, alignment: .center, spacing: 16) {
-          ForEach(modelData.currentSalad.ingredients) { ingredient in
-            SaladIngredient(ingredient: ingredient)
-              .shadow(color: Color(UIColor.secondarySystemFill), radius: 6, y: 5)
+      VStack(alignment: .leading) {
+        HStack {
+          Text("Name")
+            .bold()
+          
+          Divider()
+            .frame(height: 20)
+          
+          TextField("New salad", text: $modelData.currentSalad.name)
+        }
+        
+        .onAppear {
+          self.setDefaultSaladName(salad: modelData.currentSalad)
+        }
+        .padding(.vertical)
+        
+        Text("Ingredients")
+          .bold()
+          .padding(.vertical)
+        
+        ScrollView {
+          let rows = [GridItem(), GridItem(),]
+          LazyVGrid(columns: rows, alignment: .center, spacing: 16) {
+            ForEach(modelData.currentSalad.ingredients) { ingredient in
+              SaladIngredient(ingredient: ingredient)
+                .shadow(color: Color(UIColor.secondarySystemFill), radius: 6, y: 5)
+            }
           }
         }
       }
@@ -70,6 +91,46 @@ struct SaladDetail: View {
     .background(Color("ingredientBackground")
                   .ignoresSafeArea())
     .navigationBarHidden(true)
+  }
+  
+  private func setDefaultSaladName(salad: Salad) {
+    modelData.currentSalad.name = getDefaultSaladName(salad: salad)
+  }
+  
+  private func getDefaultSaladName(salad: Salad) -> String {
+    let fatPercentage = salad.nutritionFacts.fat / 17
+    let proteinPercentage = salad.nutritionFacts.protein / 64
+    let carbohydratePercentage = salad.nutritionFacts.carbohydrate / 130
+    let sugarPercentage = salad.nutritionFacts.sugar / 36
+    let caloriesPercentage = salad.nutritionFacts.calories / 1200
+    let nutritionFactsPercentage = [fatPercentage,
+                                    proteinPercentage,
+                                    carbohydratePercentage,
+                                    sugarPercentage,
+                                    caloriesPercentage]
+    
+    var maxPercentage = nutritionFactsPercentage[0]
+    var maxIndex = 0
+    
+    for i in 1..<nutritionFactsPercentage.count {
+      if nutritionFactsPercentage[i] > maxPercentage {
+        maxPercentage = nutritionFactsPercentage[i]
+        maxIndex = i
+      }
+    }
+    
+    switch maxIndex {
+    case 0:
+      return "Fat-rich salad"
+    case 1:
+      return "Protein-rich salad"
+    case 2:
+      return "Carbs-rich salad"
+    case 3:
+      return "Sweet salad"
+    default:
+      return "Nutritious salad"
+    }
   }
 }
 

@@ -55,14 +55,15 @@ struct SaladBuilder: View {
             self.buildSaladAction = 1
           }, label: {
             Text("Mix it")
-              .foregroundColor(.white)
+              .foregroundColor(modelData.addedIngredients.isEmpty ? Color( red: 235/255, green: 235/255, blue: 245/255, opacity: 0.6) : Color(UIColor.white))
               .font(.title)
           })
+          .disabled(modelData.addedIngredients.isEmpty)
           .padding()
          
         }
         .sheet(isPresented: $showingProfile) {
-          ProfileSummary()
+          SaladHistory()
             .environmentObject(modelData)
         }
         

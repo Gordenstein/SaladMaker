@@ -20,4 +20,11 @@ struct Salad: Hashable, Codable, Identifiable {
     self.ingredients = []
     self.nutritionFacts = NutritionFacts()
   }
+  
+  init(id: UUID, name: String, ingredients: [Ingredient], nutritionFacts: NutritionFacts) {
+    self.id = UUID()
+    self.name = ""
+    self.ingredients = []
+    self.nutritionFacts = NutritionFacts()
+  }
 }
