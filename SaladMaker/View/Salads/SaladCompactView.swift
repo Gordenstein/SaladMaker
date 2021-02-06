@@ -23,7 +23,6 @@ struct SaladCompactView: View {
         .frame(height: 120)
         .padding(.vertical)
     }
-    
   }
 }
 

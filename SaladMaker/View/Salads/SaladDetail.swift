@@ -45,10 +45,11 @@ struct SaladDetail: View {
       Group {
         Text("🥗")
           .font(Font.system(size: 100))
-        Text("Your salad is ready✨")
+        Text("✨Your salad is ready✨")
           .font(.title)
         Text("You can save it by pressing Save or Click back if you want to change it ")
-          .font(.title3)
+          .font(.body)
+          .padding(.horizontal)
       }
       .padding(.vertical, 4)
       .foregroundColor(.white)

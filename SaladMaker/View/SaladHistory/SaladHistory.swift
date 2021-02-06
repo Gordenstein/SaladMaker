@@ -48,7 +48,7 @@ struct SaladHistory: View {
 struct ProfileSummary_Previews: PreviewProvider {
   static var previews: some View {
     let modelData = ModelData()
-    modelData.saladHistory = [Salad(id: UUID(), name: "some name", ingredients: [Ingredient](), nutritionFacts: NutritionFacts()), Salad(id: UUID(), name: "some name", ingredients: [Ingredient](), nutritionFacts: NutritionFacts())]
+    modelData.saladHistory = [Salad(id: UUID(), name: "New name", ingredients: [Ingredient](), nutritionFacts: NutritionFacts()), Salad(id: UUID(), name: "New name", ingredients: [Ingredient](), nutritionFacts: NutritionFacts())]
     return SaladHistory()
       .environmentObject(modelData)
       .background(Color.blue)

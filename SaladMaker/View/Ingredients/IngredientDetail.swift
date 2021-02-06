@@ -54,7 +54,8 @@ struct IngredientDetail: View {
             HStack {
               Text(ingredient.name)
                 .foregroundColor(Color.white)
-                .padding(20)
+                .padding(.horizontal, 20)
+                .padding(.vertical, 8)
                 .font(Font.system(size: 50))
               
               Spacer()

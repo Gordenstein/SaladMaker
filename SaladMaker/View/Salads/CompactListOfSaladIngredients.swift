@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CompactListOfSaladIngredients: View {
+  @EnvironmentObject var modelData: ModelData
   var ingredients: Set<Ingredient>
   
   var placeholderAmount: Int {
@@ -52,6 +53,7 @@ struct CompactListOfSaladIngredients: View {
 struct CompactListOfIngredients_Previews: PreviewProvider {
   static var previews: some View {
     CompactListOfSaladIngredients(ingredients: Set<Ingredient>(ModelData().ingredients))
+      .environmentObject(ModelData())
       .background(Color.green)
       .frame(height: 220)
   }

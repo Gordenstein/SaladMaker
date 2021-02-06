@@ -37,14 +37,13 @@ struct NutritionFactData: View {
         let width = geometry.size.width - widthOffet
         let calculatedHeight = max(
           CGFloat((min(currentValue, maxValue) * Double(geometry.size.height - 60)) / maxValue),
-          width)
+          width / 2)
         
-        Capsule()
+        RoundedRectangle(cornerRadius: (width - 2) / 2)
           .fill(color)
           .frame(height: calculatedHeight)
           .animation(Animation.spring(dampingFraction: 0.5)
                       .speed(1))
-          .cornerRadius(geometry.size.width / 2)
           .padding([.leading, .trailing], widthOffet / 2)
         
         Text(title)
@@ -58,6 +57,6 @@ struct NutritionFactData: View {
 
 struct NutritionFactData_Previews: PreviewProvider {
   static var previews: some View {
-    NutritionFactData(maxValue: 100, currentValue: 110, title: "Fats")
+    NutritionFactData(maxValue: 100, currentValue: 1, title: "Fats")
   }
 }
