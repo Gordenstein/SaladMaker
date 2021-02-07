@@ -22,15 +22,15 @@ struct NutritionFactsGraph: View {
   var body: some View {
     GeometryReader { geometry in
       HStack(alignment: .lastTextBaseline) {
-        NutritionFactData(maxValue: 17, currentValue: modelData.currentNutritionFacts.fat, title: "Fats")
+        NutritionFactData(maxValue: 17, currentValue: modelData.currentNutritionFacts.fat, title: "Fats", graphIndex: 0)
         Divider()
-        NutritionFactData(maxValue: 64, currentValue: modelData.currentNutritionFacts.protein, title: "Protein")
+        NutritionFactData(maxValue: 64, currentValue: modelData.currentNutritionFacts.protein, title: "Protein", graphIndex: 1)
         Divider()
-        NutritionFactData(maxValue: 130, currentValue: modelData.currentNutritionFacts.carbohydrate, title: "Carbs")
+        NutritionFactData(maxValue: 130, currentValue: modelData.currentNutritionFacts.carbohydrate, title: "Carbs", graphIndex: 2)
         Divider()
-        NutritionFactData(maxValue: 36, currentValue: modelData.currentNutritionFacts.sugar, title: "Sugar")
+        NutritionFactData(maxValue: 36, currentValue: modelData.currentNutritionFacts.sugar, title: "Sugar", graphIndex: 3)
         Divider()
-        NutritionFactData(maxValue: 1200, currentValue: modelData.currentNutritionFacts.calories, title: "Kcal")
+        NutritionFactData(maxValue: 1200, currentValue: modelData.currentNutritionFacts.calories, title: "Kcal", graphIndex: 3)
       }
       .padding([.leading, .trailing], 10)
       .padding([.bottom, .top], 20)

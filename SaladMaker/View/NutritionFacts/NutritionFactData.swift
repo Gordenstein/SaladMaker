@@ -11,15 +11,38 @@ struct NutritionFactData: View {
   var maxValue: Double
   var currentValue: Double
   var title: String
+  var graphIndex: Int
   
   var color: Color {
+    switch graphIndex {
+    case 0, 1, 2:
+      return moreBetterColor
+    default:
+      return moreWorseColor
+    }
+  }
+  
+  var moreBetterColor: Color {
     switch currentValue {
     case 0:
       return .gray
     case 0.01..<maxValue:
-      return .blue
+      return Color("ingredientAccent")
     case maxValue...:
       return .green
+    default:
+      return .clear
+    }
+  }
+  
+  var moreWorseColor: Color {
+    switch currentValue {
+    case 0:
+      return .gray
+    case 0.01..<maxValue:
+      return Color("ingredientAccent")
+    case maxValue...:
+      return Color("tomatoRed")
     default:
       return .clear
     }
@@ -39,7 +62,7 @@ struct NutritionFactData: View {
           CGFloat((min(currentValue, maxValue) * Double(geometry.size.height - 60)) / maxValue),
           width / 2)
         
-        RoundedRectangle(cornerRadius: (width - 2) / 2)
+        RoundedRectangle(cornerRadius: (width - 7) / 2)
           .fill(color)
           .frame(height: calculatedHeight)
           .animation(Animation.spring(dampingFraction: 0.5)
@@ -57,6 +80,6 @@ struct NutritionFactData: View {
 
 struct NutritionFactData_Previews: PreviewProvider {
   static var previews: some View {
-    NutritionFactData(maxValue: 100, currentValue: 1, title: "Fats")
+    NutritionFactData(maxValue: 100, currentValue: 60, title: "Fats", graphIndex: 1)
   }
 }

@@ -11,7 +11,7 @@ struct SaladBuilder: View {
   @EnvironmentObject var modelData: ModelData
   @State private var showingProfile = false
   
-  @State private var currentSliderPositionY: CGFloat = 500.0
+  @State private var currentSliderPositionY: CGFloat = 485.0
   @GestureState private var slideOffset = CGSize.zero
   @State private var shouldScrooll = false
   
@@ -49,18 +49,29 @@ struct SaladBuilder: View {
             EmptyView()
           }
           
-          Button(action: {
+          MixSaladRectangleButton(title: "Mix it", backgroundColor: .clear, buttonAction: {
             modelData.currentSalad.ingredients = Array(modelData.addedIngredients)
             modelData.currentSalad.nutritionFacts = modelData.currentNutritionFacts
             self.buildSaladAction = 1
-          }, label: {
-            Text("Mix it")
-              .foregroundColor(modelData.addedIngredients.isEmpty ? Color( red: 235/255, green: 235/255, blue: 245/255, opacity: 0.6) : Color(UIColor.white))
-              .font(.title)
-          })
-          .disabled(modelData.addedIngredients.isEmpty)
-          .padding()
-         
+          }, disabled: modelData.addedIngredients.isEmpty)
+          
+//          Button(action: {
+//            modelData.currentSalad.ingredients = Array(modelData.addedIngredients)
+//            modelData.currentSalad.nutritionFacts = modelData.currentNutritionFacts
+//            self.buildSaladAction = 1
+//          }, label: {
+//            Text("Mix it")
+//              .foregroundColor(modelData.addedIngredients.isEmpty ? Color( red: 235/255, green: 235/255, blue: 245/255, opacity: 0.6) : Color(UIColor.white))
+//              .font(.title)
+//              .foregroundColor(.white)
+//              .padding(.horizontal, 90)
+//              .padding(.vertical, 10)
+//              .overlay(
+//                RoundedRectangle(cornerRadius: 14)
+//                  .stroke(Color.white, lineWidth: 3)
+//              )
+//          })
+//          .disabled(modelData.addedIngredients.isEmpty)
         }
         .sheet(isPresented: $showingProfile) {
           SaladHistory()
@@ -78,7 +89,7 @@ struct SaladBuilder: View {
                                   })
                                   .onEnded({ value in
                                     if value.translation.height > 150 {
-                                      self.currentSliderPositionY = 500
+                                      self.currentSliderPositionY = 485
                                       self.shouldScrooll = false
                                     } else if value.translation.height < -150 {
                                       self.currentSliderPositionY = 270
